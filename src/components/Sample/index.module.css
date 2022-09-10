@@ -1,0 +1,4 @@
+.primary {
+    @apply bg-brandPrimary text-white;
+    @apply dark:bg-dark-brandPrimary;
+}
