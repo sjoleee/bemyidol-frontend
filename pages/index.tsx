@@ -1,9 +1,7 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
-  return (
-   <div>bemyidol 입니당</div>
-  )
-}
+  return <div className="bg-green-500">bemyidol 입니당</div>;
+};
 
-export default Home
+export default Home;
