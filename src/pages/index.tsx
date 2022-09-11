@@ -7,7 +7,7 @@ import { H1 } from '@/components/Text';
 
 const Home: NextPage = () => {
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center h-full">
       <Head>
         <title>bemyidol</title>
       </Head>
