@@ -5,7 +5,7 @@
     "prefer-const": "warn",
     "no-undef": "off",
     "import/order": [
-      "error",
+      "warn",
       {
         "groups": ["builtin", "external", ["parent", "sibling"], "index"],
         "newlines-between": "always"
