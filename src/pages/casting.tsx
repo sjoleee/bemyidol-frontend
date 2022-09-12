@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import Search from '@/components/Search/index';
 import Card from '@/components/Card/index';
+import Button from '@/components/Button';
 
 interface Props {
   id: number;
@@ -29,11 +30,12 @@ const Casting: NextPage = () => {
         <title>bemyidol</title>
       </Head>
       <Search></Search>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-3">
         {data.map((item) => (
           <Card key={item.id} {...item} />
         ))}
       </div>
+      <Button className="bg-green-500">다음</Button>
     </div>
   );
 };
