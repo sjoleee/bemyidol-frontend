@@ -1,130 +1,67 @@
-@tailwind base
-
 .container {
     @apply inline-flex items-center justify-center text-black bg-red-400 font-medium rounded-md;
     @apply focus:outline-none whitespace-nowrap;
     @apply transition-colors transition-opacity disabled:opacity-40 disabled:select-none hover:opacity-80 active:opacity-80;
 
+    &.x-small {
+        @apply h-6 px-[3px];
 
+        &.iconOnly {
+            @apply w-6;
+        }
+    }
 
-    /*&.x-small {*/
-    /*     @apply h-6 px-[3px];*/
-    /*    &.iconOnly {*/
-    /*         @apply w-6;*/
-    /*     }*/
-    /*}*/
-    /*&.small {*/
-    /*     @apply h-8 px-4;*/
-    /*&.withPrefixIcon {*/
-    /*     @apply pl-1;*/
-    /* }*/
-    /*&.withSuffixIcon {*/
-    /*     @apply pr-1;*/
-    /* }*/
-    /*&.iconOnly {*/
-    /*     @apply w-8;*/
-    /* }*/
-    /*}*/
-    /*&.medium {*/
-    /*     @apply h-10 text-15Body2 px-6;*/
-    /*&.withPrefixIcon {*/
-    /*     @apply pl-3;*/
-    /* }*/
-    /*&.withSuffixIcon {*/
-    /*     @apply pr-3;*/
-    /* }*/
-    /*&.iconOnly {*/
-    /*     @apply w-10;*/
-    /* }*/
-    /*}*/
-    /*&.large {*/
-    /*     @apply h-12 text-16Subhead font-semibold rounded-lg px-6;*/
-    /*&.iconOnly {*/
-    /*     @apply w-12;*/
-    /* }*/
-    /*}*/
-    /*&.fullWidth {*/
-    /*     @apply w-full;*/
-    /* }*/
-    /*&.contained {*/
-    /*&.primary {*/
-    /*     @apply bg-brandPrimary text-white;*/
-    /*     @apply dark:bg-dark-brandPrimary;*/
-    /* }*/
-    /*&.sub {*/
-    /*     @apply bg-bgInput;*/
-    /*     @apply dark:bg-dark-bgInput;*/
-    /* }*/
-    /*&.warning {*/
-    /*     @apply bg-systemError text-white;*/
-    /*     @apply dark:bg-dark-systemError;*/
-    /* }*/
-    /*&.mono {*/
-    /*     @apply bg-black text-white;*/
-    /*     @apply dark:bg-white dark:text-black;*/
-    /* }*/
-    /*&.white {*/
-    /*     @apply bg-white text-black;*/
-    /* }*/
-    /*&.black {*/
-    /*     @apply bg-black text-white;*/
-    /* }*/
-    /*&.elevated {*/
-    /*     @apply bg-bgElevated dark:bg-dark-bgElevated;*/
-    /* }*/
-    /*}*/
-    /*&.outlined {*/
-    /*     @apply border bg-transparent;*/
-    /*&.primary {*/
-    /*     @apply border-brandPrimary text-brandPrimary dark:border-dark-brandPrimary dark:text-dark-brandPrimary;*/
-    /* }*/
-    /*&.mono {*/
-    /*     @apply text-primary border-primary;*/
-    /*     @apply dark:text-dark-primary dark:border-dark-primary;*/
-    /* }*/
-    /*&.sub {*/
-    /*     @apply border-borderDefault text-primary;*/
-    /*     @apply dark:border-dark-borderDefault dark:text-dark-primary;*/
-    /* }*/
-    /*&.warning {*/
-    /*     @apply text-systemError border-systemError;*/
-    /*     @apply dark:text-dark-systemError dark:border-dark-systemError;*/
-    /* }*/
-    /*&.white {*/
-    /*     @apply text-white border-white30 border-white;*/
-    /* }*/
-    /*&.black {*/
-    /*     @apply text-black border-black30;*/
-    /* }*/
-    /*}*/
-    /*&.text {*/
-    /*     @apply transition-colors;*/
-    /*&:active {*/
-    /*     @apply bg-bgPress MD:bg-none;*/
-    /*     @apply dark:bg-dark-bgPress;*/
-    /* }*/
-    /*@apply border-transparent;*/
-    /*&.sub {*/
-    /*     @apply text-secondary;*/
-    /*     @apply dark:text-dark-secondary;*/
-    /* }*/
-    /*&.warning {*/
-    /*     @apply text-systemError;*/
-    /*     @apply dark:text-dark-systemError;*/
-    /* }*/
-    /*&.white {*/
-    /*     @apply text-white;*/
-    /* }*/
-    /*&.info {*/
-    /*     @apply text-systemFocus dark:text-dark-systemFocus;*/
-    /* }*/
-    /*}*/
-    /*&.rounded {*/
-    /*     @apply rounded-full;*/
-    /* }*/
-    /*&&.iconOnly {*/
-    /*      @apply p-0 items-center;*/
-    /*  }*/
+    &.small {
+        @apply h-8 px-4;
+
+        &.withPrefixIcon {
+            @apply pl-1;
+        }
+
+        &.withSuffixIcon {
+            @apply pr-1;
+        }
+
+        &.iconOnly {
+            @apply w-8;
+        }
+    }
+
+    &.medium {
+        @apply h-10 px-6;
+
+        &.withPrefixIcon {
+            @apply pl-3;
+        }
+
+        &.withSuffixIcon {
+            @apply pr-3;
+        }
+
+        &.iconOnly {
+            @apply w-10;
+        }
+    }
+
+    &.large {
+        @apply h-12 font-semibold rounded-lg px-6;
+
+        &.iconOnly {
+            @apply w-12;
+        }
+    }
+
+    &.fullWidth {
+        @apply w-full rounded-none;
+    }
+
+    &.rounded {
+        @apply rounded-full;
+    }
+
+    &&.iconOnly {
+        @apply p-0 items-center;
+    }
 }
 
 .prefixIcon {
