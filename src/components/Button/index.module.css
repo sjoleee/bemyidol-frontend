@@ -1,73 +1,73 @@
 .container {
-    @apply inline-flex items-center justify-center text-black bg-red-400 font-medium rounded-md;
-    @apply focus:outline-none whitespace-nowrap;
-    @apply transition-colors transition-opacity disabled:opacity-40 disabled:select-none hover:opacity-80 active:opacity-80;
+  @apply inline-flex items-center justify-center text-black bg-red-400 font-medium rounded-md;
+  @apply focus:outline-none whitespace-nowrap;
+  @apply transition-colors transition-opacity disabled:opacity-40 disabled:select-none hover:opacity-80 active:opacity-80;
 
-    &.x-small {
-        @apply h-6 px-[3px];
+  &.x-small {
+    @apply h-6 px-[3px];
 
-        &.iconOnly {
-            @apply w-6;
-        }
+    &.iconOnly {
+      @apply w-6;
+    }
+  }
+
+  &.small {
+    @apply h-8 px-4;
+
+    &.withPrefixIcon {
+      @apply pl-1;
     }
 
-    &.small {
-        @apply h-8 px-4;
-
-        &.withPrefixIcon {
-            @apply pl-1;
-        }
-
-        &.withSuffixIcon {
-            @apply pr-1;
-        }
-
-        &.iconOnly {
-            @apply w-8;
-        }
+    &.withSuffixIcon {
+      @apply pr-1;
     }
 
-    &.medium {
-        @apply h-10 px-6;
+    &.iconOnly {
+      @apply w-8;
+    }
+  }
 
-        &.withPrefixIcon {
-            @apply pl-3;
-        }
+  &.medium {
+    @apply h-10 px-6;
 
-        &.withSuffixIcon {
-            @apply pr-3;
-        }
-
-        &.iconOnly {
-            @apply w-10;
-        }
+    &.withPrefixIcon {
+      @apply pl-3;
     }
 
-    &.large {
-        @apply h-12 font-semibold rounded-lg px-6;
-
-        &.iconOnly {
-            @apply w-12;
-        }
+    &.withSuffixIcon {
+      @apply pr-3;
     }
 
-    &.fullWidth {
-        @apply w-full rounded-none;
+    &.iconOnly {
+      @apply w-10;
     }
+  }
 
-    &.rounded {
-        @apply rounded-full;
-    }
+  &.large {
+    @apply h-12 font-semibold rounded-lg px-6;
 
-    &&.iconOnly {
-        @apply p-0 items-center;
+    &.iconOnly {
+      @apply w-12;
     }
+  }
+
+  &.fullWidth {
+    @apply w-full rounded-none;
+  }
+
+  &.rounded {
+    @apply rounded-full;
+  }
+
+  &&.iconOnly {
+    @apply p-0 items-center;
+  }
 }
 
 .prefixIcon {
-    @apply mr-2;
+  @apply mr-2;
 }
 
 .suffixIcon {
-    @apply ml-2;
+  @apply ml-2;
 }
