@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import Search from '@/components/Search/index';
-import IdolMemberCard from '@/components/IdolMemberCard/index';
+import MemberCard from '@/components/MemberCard/index';
 import Button from '@/components/Button';
 
 interface Props {
@@ -33,7 +33,7 @@ const Casting: NextPage = () => {
       <Search></Search>
       <div className="flex flex-wrap gap-3">
         {data.map((item) => (
-          <IdolMemberCard key={item.id} {...item} />
+          <MemberCard key={item.id} {...item} />
         ))}
       </div>
       <Link href="/setting">

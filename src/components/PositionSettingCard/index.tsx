@@ -11,7 +11,7 @@ const PositionSettingCard = () => {
         <div className="flex justify-between">
           <H3>수지</H3>
           <div>
-            <input type="checkbox" id="leader"></input>
+            <input type="checkbox" id="leader" />
             <label htmlFor="leader">리더</label>
           </div>
         </div>

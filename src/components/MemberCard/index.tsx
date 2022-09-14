@@ -1,4 +1,4 @@
-import style from '@/components/IdolMemberCard/index.module.css';
+import style from '@/components/MemberCard/index.module.css';
 
 interface Props {
   id: number;
@@ -9,7 +9,7 @@ interface Props {
   debutDate: string;
 }
 
-const IdolMemberCard = ({ groupName, name, squreImageUrl, longImageUrl, debutDate }: Props) => {
+const MemberCard = ({ groupName, name, squreImageUrl, longImageUrl, debutDate }: Props) => {
   return (
     <div className="flex flex-col w-32">
       <img src={squreImageUrl} alt={name} />
@@ -19,4 +19,4 @@ const IdolMemberCard = ({ groupName, name, squreImageUrl, longImageUrl, debutDat
     </div>
   );
 };
-export default IdolMemberCard;
+export default MemberCard;
