@@ -5,50 +5,18 @@
 
   &.x-small {
     @apply h-6 px-[3px];
-
-    &.iconOnly {
-      @apply w-6;
-    }
   }
 
   &.small {
     @apply h-8 px-4;
-
-    &.withPrefixIcon {
-      @apply pl-1;
-    }
-
-    &.withSuffixIcon {
-      @apply pr-1;
-    }
-
-    &.iconOnly {
-      @apply w-8;
-    }
   }
 
   &.medium {
     @apply h-10 px-6;
-
-    &.withPrefixIcon {
-      @apply pl-3;
-    }
-
-    &.withSuffixIcon {
-      @apply pr-3;
-    }
-
-    &.iconOnly {
-      @apply w-10;
-    }
   }
 
   &.large {
     @apply h-12 font-semibold rounded-lg px-6;
-
-    &.iconOnly {
-      @apply w-12;
-    }
   }
 
   &.fullWidth {
@@ -59,15 +27,7 @@
     @apply rounded-full;
   }
 
-  &&.iconOnly {
-    @apply p-0 items-center;
+  &.isFixed {
+    @apply fixed bottom-0;
   }
-}
-
-.prefixIcon {
-  @apply mr-2;
-}
-
-.suffixIcon {
-  @apply ml-2;
 }

@@ -1,9 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 import Search from '@/components/Search/index';
-import Card from '@/components/Card/index';
+import IdolMemberCard from '@/components/IdolMemberCard/index';
 import Button from '@/components/Button';
 
 interface Props {
@@ -32,10 +33,16 @@ const Casting: NextPage = () => {
       <Search></Search>
       <div className="flex flex-wrap gap-3">
         {data.map((item) => (
-          <Card key={item.id} {...item} />
+          <IdolMemberCard key={item.id} {...item} />
         ))}
       </div>
-      <Button className="bg-green-500">다음</Button>
+      <Link href="/setting">
+        <a>
+          <Button fullWidth={true} isFixed={true}>
+            다음
+          </Button>
+        </a>
+      </Link>
     </div>
   );
 };
