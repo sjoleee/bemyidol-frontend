@@ -1,6 +1,7 @@
-import { ButtonHTMLAttributes, forwardRef } from 'react';
-import styles from './index.module.css';
 import clsx from 'clsx';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
+
+import styles from './index.module.css';
 
 export enum ButtonSize {
   XS = 'x-small',
@@ -13,11 +14,20 @@ export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: ButtonSize;
   fullWidth?: boolean;
   fullRounded?: boolean;
+  isFixed?: boolean;
 };
 
 const Button = forwardRef<HTMLButtonElement, Props>(
   (
-    { children, className, size = ButtonSize.SM, fullWidth = false, fullRounded = false, ...rest },
+    {
+      children,
+      className,
+      size = ButtonSize.SM,
+      fullWidth = false,
+      fullRounded = false,
+      isFixed = false,
+      ...rest
+    },
     ref,
   ) => {
     return (
@@ -28,6 +38,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(
           {
             [styles.fullWidth]: fullWidth,
             [styles.rounded]: fullRounded,
+            [styles.isFixed]: isFixed,
           },
           className,
         )}

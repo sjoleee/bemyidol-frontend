@@ -5,17 +5,17 @@ interface Props {
 }
 
 export const H1 = ({ children }: Props) => {
-  return <button className={style.h1}>{children}</button>;
+  return <h1 className={style.h1}>{children}</h1>;
 };
 
 export const H2 = ({ children }: Props) => {
-  return <button className={style.h2}>{children}</button>;
+  return <h2 className={style.h2}>{children}</h2>;
 };
 
 export const H3 = ({ children }: Props) => {
-  return <button className={style.h3}>{children}</button>;
+  return <h3 className={style.h3}>{children}</h3>;
 };
 
 export const H4 = ({ children }: Props) => {
-  return <button className={style.h4}>{children}</button>;
+  return <h4 className={style.h4}>{children}</h4>;
 };
