@@ -12,7 +12,7 @@ const PositionSettingCard = () => {
           <H3>수지</H3>
           <div>
             <input type="checkbox" id="leader" />
-            <label htmlFor="leader">리더</label>
+            <label htmlFor="leader">센터</label>
           </div>
         </div>
         <H4>미쓰에이</H4>
