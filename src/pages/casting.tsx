@@ -11,6 +11,7 @@ import SelectedMemberCardList from '@/components/SelectedMemberCardList';
 
 const Casting: NextPage = () => {
   const { setMembers } = MemberStore();
+
   useEffect(() => {
     fetch('/data/mockdata.json')
       .then((res) => res.json())
