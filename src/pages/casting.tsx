@@ -7,6 +7,7 @@ import Search from '@/components/Search/index';
 import Button from '@/components/Button';
 import { MemberStore } from '@/store/store';
 import MemberCardList from '@/components/MemberCardList';
+import SelectedMemberCardList from '@/components/SelectedMemberCardList';
 
 const Casting: NextPage = () => {
   const { setMembers } = MemberStore();
@@ -23,6 +24,7 @@ const Casting: NextPage = () => {
       </Head>
       <Search />
       <MemberCardList />
+      <SelectedMemberCardList />
       <Link href="/setting">
         <a>
           <Button fullWidth={true} isFixed={true}>
