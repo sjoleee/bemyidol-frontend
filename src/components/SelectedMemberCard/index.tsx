@@ -6,7 +6,7 @@ const SelectedMemberCard = ({ name, groupName, id, isSelected }: MemberProps) =>
 
   const handleDeselect = (id: number) => {
     const selectUpdateMembers = [...members].map((item) => {
-      return item.id === id ? { ...item, isSelected: !isSelected } : item;
+      return item.id === id ? { ...item, isSelected: false } : item;
     });
     setMembers(selectUpdateMembers);
 

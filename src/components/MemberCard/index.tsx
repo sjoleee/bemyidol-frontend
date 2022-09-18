@@ -15,16 +15,18 @@ const MemberCard = ({ id, groupName, name, squreImageUrl, debutDate, isSelected 
   };
 
   const handleSelect = (id: number) => {
+    handleIsSelectedChange(id);
+
     members.forEach((item) =>
       item.id === id ? setSelectedMembers([...selectedMembers, item]) : null,
     );
-    handleIsSelectedChange(id);
   };
 
   const handleDeselect = (id: number) => {
+    handleIsSelectedChange(id);
+
     const newSelectedMembers = selectedMembers.filter((item) => item.id !== id);
     setSelectedMembers(newSelectedMembers);
-    handleIsSelectedChange(id);
   };
 
   const onMemberCardClick = () => {
