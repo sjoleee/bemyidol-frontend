@@ -7,24 +7,24 @@ const MemberCard = ({ id, groupName, name, squreImageUrl, debutDate, isSelected 
   const { members, setMembers } = MemberStore();
   const { selectedMembers, setSelectedMembers } = SelectedMemberStore();
 
-  const handleSelect = (id: number) => {
-    const newSelectedMembers = members.filter((item) => item.id === id);
-    setSelectedMembers([...selectedMembers, ...newSelectedMembers]);
+  const handleIsSelectedChange = (id: number) => {
+    const newMembers = [...members].map((item) =>
+      item.id === id ? { ...item, isSelected: !isSelected } : item,
+    );
+    setMembers(newMembers);
+  };
 
-    const selectUpdateMembers = [...members].map((item) => {
-      return item.id === id ? { ...item, isSelected: !isSelected } : item;
-    });
-    setMembers(selectUpdateMembers);
+  const handleSelect = (id: number) => {
+    members.forEach((item) =>
+      item.id === id ? setSelectedMembers([...selectedMembers, item]) : null,
+    );
+    handleIsSelectedChange(id);
   };
 
   const handleDeselect = (id: number) => {
     const newSelectedMembers = selectedMembers.filter((item) => item.id !== id);
     setSelectedMembers(newSelectedMembers);
-
-    const selectUpdateMembers = [...members].map((item) => {
-      return item.id === id ? { ...item, isSelected: !isSelected } : item;
-    });
-    setMembers(selectUpdateMembers);
+    handleIsSelectedChange(id);
   };
 
   const onMemberCardClick = () => {
@@ -32,17 +32,19 @@ const MemberCard = ({ id, groupName, name, squreImageUrl, debutDate, isSelected 
   };
 
   return (
-    <div
-      className={clsx(style.container, {
-        [style.selected]: isSelected,
-      })}
-      onClick={onMemberCardClick}
-    >
-      <img src={squreImageUrl} alt={name} />
-      <span>{name}</span>
-      <span>{groupName}</span>
-      <span>{debutDate}</span>
-    </div>
+    <>
+      <div
+        className={clsx(style.container, {
+          [style.selected]: isSelected,
+        })}
+        onClick={onMemberCardClick}
+      >
+        <img src={squreImageUrl} alt={name} />
+        <span>{name}</span>
+        <span>{groupName}</span>
+        <span>{debutDate}</span>
+      </div>
+    </>
   );
 };
 export default MemberCard;
