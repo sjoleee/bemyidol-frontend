@@ -1,22 +1,50 @@
+import clsx from 'clsx';
+
 import style from '@/components/MemberCard/index.module.css';
+import { MemberProps, MemberStore, SelectedMemberStore } from '@/store/store';
 
-interface Props {
-  id: number;
-  groupName: string;
-  name: string;
-  squreImageUrl: string;
-  longImageUrl: string;
-  debutDate: string;
-}
+const MemberCard = ({ id, groupName, name, squreImageUrl, debutDate, isSelected }: MemberProps) => {
+  const { members, setMembers } = MemberStore();
+  const { selectedMembers, setSelectedMembers } = SelectedMemberStore();
 
-const MemberCard = ({ groupName, name, squreImageUrl, longImageUrl, debutDate }: Props) => {
+  const handleSelect = (id: number) => {
+    const newMembers = [...members].map((item) =>
+      item.id === id ? { ...item, isSelected: !isSelected } : item,
+    );
+    newMembers.forEach((item) =>
+      item.id === id ? setSelectedMembers([...selectedMembers, item]) : null,
+    );
+    setMembers(newMembers);
+  };
+
+  const handleDeselect = (id: number) => {
+    const newMembers = [...members].map((item) =>
+      item.id === id ? { ...item, isSelected: !isSelected } : item,
+    );
+    setMembers(newMembers);
+
+    const newSelectedMembers = selectedMembers.filter((item) => item.id !== id);
+    setSelectedMembers(newSelectedMembers);
+  };
+
+  const onMemberCardClick = () => {
+    isSelected ? handleDeselect(id) : handleSelect(id);
+  };
+
   return (
-    <div className="flex flex-col w-32">
-      <img src={squreImageUrl} alt={name} />
-      <span>{name}</span>
-      <span>{groupName}</span>
-      <span>{debutDate}</span>
-    </div>
+    <>
+      <div
+        className={clsx(style.container, {
+          [style.selected]: isSelected,
+        })}
+        onClick={onMemberCardClick}
+      >
+        <img src={squreImageUrl} alt={name} />
+        <span>{name}</span>
+        <span>{groupName}</span>
+        <span>{debutDate}</span>
+      </div>
+    </>
   );
 };
 export default MemberCard;

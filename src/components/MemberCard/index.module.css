@@ -1,0 +1,7 @@
+.container {
+  @apply flex flex-col w-32;
+
+  &.selected {
+    @apply bg-green-500;
+  }
+}

@@ -5,7 +5,8 @@
     "name": "유비",
     "squreImageUrl": "https://w.namu.la/s/3e1ac4e63718b63273d30d1142bf7f3fcb368e3d37a76556a1cd6cb8b0225d5bbda3e14a7379ea73160363e824c6aa497cc67cbaf096e7607fb8f776800a0b3812125ff0fa1872c991de98170d8b5964bdfd35725e5520d16b2f4c451c241715",
     "longImageUrl": "https://w.namu.la/s/44da7d217d4a8b632a3b8bf4f19940fd6936f280311133c173139a8515bf160bfd092b7b6bb0bd0739c682e5c05e7046f8ba6c583a241299e4cb6d8dd0b82e4a23aafee383df3d658939b4cc42e73450db7840419b6a3f477d1eb32dc1c896c80bb15d2da3b9c642dfde8a2e660f7974",
-    "debutDate": "2010.01.01"
+    "debutDate": "2010.01.01",
+    "isSelected": false
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "name": "관우",
     "squreImageUrl": "https://t1.daumcdn.net/cfile/tistory/2278F73C56975FC130",
     "longImageUrl": "https://w.namu.la/s/0b3b8b50110082b56f194fbf0913711c97857a7932117b594a02f37a387577b29e00b527c9515afa1b8aacdce51f7c0bc712206427e341d64bb57aff4760370d43e4db91be44f2c2df66beaffcf5dbcca2e05e26e668a67bb98d34f968e3000b1bc5e3218d1f69276c080360cb368a8e",
-    "debutDate": "2010.01.01"
+    "debutDate": "2010.01.01",
+    "isSelected": false
   },
   {
     "id": 3,
@@ -21,54 +23,61 @@
     "name": "장비",
     "squreImageUrl": "https://t1.daumcdn.net/cfile/tistory/224BC63D569A4E2B32",
     "longImageUrl": "https://w.namu.la/s/aed498413488f76fcb96ea5c5b2906426c209314da15f3fcf4bb097ad6b5ced057536d54b752e67af1d7696aa8bf726e058d3aa563771362c970f6f6962cda170fe95372d37b7f6c69c23f01f3729d18e489162f9d43ea4e7d5de9277e9a28fc5f75262d244b1f719d2ab8fa4e6961ca",
-    "debutDate": "2010.01.01"
+    "debutDate": "2010.01.01",
+    "isSelected": false
   },
   {
     "id": 4,
     "groupName": "삼국지",
-    "name": "유비",
+    "name": "조조",
     "squreImageUrl": "https://w.namu.la/s/3e1ac4e63718b63273d30d1142bf7f3fcb368e3d37a76556a1cd6cb8b0225d5bbda3e14a7379ea73160363e824c6aa497cc67cbaf096e7607fb8f776800a0b3812125ff0fa1872c991de98170d8b5964bdfd35725e5520d16b2f4c451c241715",
     "longImageUrl": "https://w.namu.la/s/44da7d217d4a8b632a3b8bf4f19940fd6936f280311133c173139a8515bf160bfd092b7b6bb0bd0739c682e5c05e7046f8ba6c583a241299e4cb6d8dd0b82e4a23aafee383df3d658939b4cc42e73450db7840419b6a3f477d1eb32dc1c896c80bb15d2da3b9c642dfde8a2e660f7974",
-    "debutDate": "2010.01.01"
+    "debutDate": "2010.01.01",
+    "isSelected": false
   },
   {
     "id": 5,
     "groupName": "삼국지",
-    "name": "관우",
+    "name": "제갈량",
     "squreImageUrl": "https://t1.daumcdn.net/cfile/tistory/2278F73C56975FC130",
     "longImageUrl": "https://w.namu.la/s/0b3b8b50110082b56f194fbf0913711c97857a7932117b594a02f37a387577b29e00b527c9515afa1b8aacdce51f7c0bc712206427e341d64bb57aff4760370d43e4db91be44f2c2df66beaffcf5dbcca2e05e26e668a67bb98d34f968e3000b1bc5e3218d1f69276c080360cb368a8e",
-    "debutDate": "2010.01.01"
+    "debutDate": "2010.01.01",
+    "isSelected": false
   },
   {
     "id": 6,
     "groupName": "삼국지",
-    "name": "장비",
+    "name": "마등",
     "squreImageUrl": "https://t1.daumcdn.net/cfile/tistory/224BC63D569A4E2B32",
     "longImageUrl": "https://w.namu.la/s/aed498413488f76fcb96ea5c5b2906426c209314da15f3fcf4bb097ad6b5ced057536d54b752e67af1d7696aa8bf726e058d3aa563771362c970f6f6962cda170fe95372d37b7f6c69c23f01f3729d18e489162f9d43ea4e7d5de9277e9a28fc5f75262d244b1f719d2ab8fa4e6961ca",
-    "debutDate": "2010.01.01"
+    "debutDate": "2010.01.01",
+    "isSelected": false
   },
   {
     "id": 7,
     "groupName": "삼국지",
-    "name": "유비",
+    "name": "조자룡",
     "squreImageUrl": "https://w.namu.la/s/3e1ac4e63718b63273d30d1142bf7f3fcb368e3d37a76556a1cd6cb8b0225d5bbda3e14a7379ea73160363e824c6aa497cc67cbaf096e7607fb8f776800a0b3812125ff0fa1872c991de98170d8b5964bdfd35725e5520d16b2f4c451c241715",
     "longImageUrl": "https://w.namu.la/s/44da7d217d4a8b632a3b8bf4f19940fd6936f280311133c173139a8515bf160bfd092b7b6bb0bd0739c682e5c05e7046f8ba6c583a241299e4cb6d8dd0b82e4a23aafee383df3d658939b4cc42e73450db7840419b6a3f477d1eb32dc1c896c80bb15d2da3b9c642dfde8a2e660f7974",
-    "debutDate": "2010.01.01"
+    "debutDate": "2010.01.01",
+    "isSelected": false
   },
   {
     "id": 8,
     "groupName": "삼국지",
-    "name": "관우",
+    "name": "황충",
     "squreImageUrl": "https://t1.daumcdn.net/cfile/tistory/2278F73C56975FC130",
     "longImageUrl": "https://w.namu.la/s/0b3b8b50110082b56f194fbf0913711c97857a7932117b594a02f37a387577b29e00b527c9515afa1b8aacdce51f7c0bc712206427e341d64bb57aff4760370d43e4db91be44f2c2df66beaffcf5dbcca2e05e26e668a67bb98d34f968e3000b1bc5e3218d1f69276c080360cb368a8e",
-    "debutDate": "2010.01.01"
+    "debutDate": "2010.01.01",
+    "isSelected": false
   },
   {
     "id": 9,
     "groupName": "삼국지",
-    "name": "장비",
+    "name": "강유",
     "squreImageUrl": "https://t1.daumcdn.net/cfile/tistory/224BC63D569A4E2B32",
     "longImageUrl": "https://w.namu.la/s/aed498413488f76fcb96ea5c5b2906426c209314da15f3fcf4bb097ad6b5ced057536d54b752e67af1d7696aa8bf726e058d3aa563771362c970f6f6962cda170fe95372d37b7f6c69c23f01f3729d18e489162f9d43ea4e7d5de9277e9a28fc5f75262d244b1f719d2ab8fa4e6961ca",
-    "debutDate": "2010.01.01"
+    "debutDate": "2010.01.01",
+    "isSelected": false
   }
 ]
