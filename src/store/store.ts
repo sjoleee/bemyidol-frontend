@@ -12,11 +12,11 @@ export interface MemberProps {
 
 interface MembersProps {
   members: MemberProps[];
-  setMembers: (member: MemberProps[]) => void;
+  setMembers: (members: MemberProps[]) => void;
 }
 interface SelectedMembersProps {
   selectedMembers: MemberProps[];
-  setSelectedMembers: (member: MemberProps[]) => void;
+  setSelectedMembers: (members: MemberProps[]) => void;
 }
 
 export const MemberStore = create<MembersProps>((set) => ({

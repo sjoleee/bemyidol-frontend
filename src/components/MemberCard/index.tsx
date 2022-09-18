@@ -7,23 +7,21 @@ const MemberCard = ({ id, groupName, name, squreImageUrl, debutDate, isSelected 
   const { members, setMembers } = MemberStore();
   const { selectedMembers, setSelectedMembers } = SelectedMemberStore();
 
-  const handleIsSelectedChange = (id: number) => {
+  const handleSelect = (id: number) => {
     const newMembers = [...members].map((item) =>
       item.id === id ? { ...item, isSelected: !isSelected } : item,
+    );
+    newMembers.forEach((item) =>
+      item.id === id ? setSelectedMembers([...selectedMembers, item]) : null,
     );
     setMembers(newMembers);
   };
 
-  const handleSelect = (id: number) => {
-    handleIsSelectedChange(id);
-
-    members.forEach((item) =>
-      item.id === id ? setSelectedMembers([...selectedMembers, item]) : null,
-    );
-  };
-
   const handleDeselect = (id: number) => {
-    handleIsSelectedChange(id);
+    const newMembers = [...members].map((item) =>
+      item.id === id ? { ...item, isSelected: !isSelected } : item,
+    );
+    setMembers(newMembers);
 
     const newSelectedMembers = selectedMembers.filter((item) => item.id !== id);
     setSelectedMembers(newSelectedMembers);
