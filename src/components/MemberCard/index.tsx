@@ -9,7 +9,7 @@ const MemberCard = ({ id, groupName, name, squreImageUrl, debutDate, isSelected 
 
   const handleSelect = (id: number) => {
     const newMembers = [...members].map((item) =>
-      item.id === id ? { ...item, isSelected: !isSelected } : item,
+      item.id === id ? { ...item, isSelected: !item.isSelected } : item,
     );
     newMembers.forEach((item) =>
       item.id === id ? setSelectedMembers([...selectedMembers, item]) : null,
@@ -19,7 +19,7 @@ const MemberCard = ({ id, groupName, name, squreImageUrl, debutDate, isSelected 
 
   const handleDeselect = (id: number) => {
     const newMembers = [...members].map((item) =>
-      item.id === id ? { ...item, isSelected: !isSelected } : item,
+      item.id === id ? { ...item, isSelected: !item.isSelected } : item,
     );
     setMembers(newMembers);
 

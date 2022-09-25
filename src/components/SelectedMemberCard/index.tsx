@@ -1,12 +1,12 @@
 import { MemberProps, MemberStore, SelectedMemberStore } from '@/store/store';
 
-const SelectedMemberCard = ({ name, groupName, id, isSelected }: MemberProps) => {
+const SelectedMemberCard = ({ name, groupName, id }: MemberProps) => {
   const { members, setMembers } = MemberStore();
   const { selectedMembers, setSelectedMembers } = SelectedMemberStore();
 
   const handleDeselect = (id: number) => {
     const selectUpdateMembers = [...members].map((item) => {
-      return item.id === id ? { ...item, isSelected: !isSelected } : item;
+      return item.id === id ? { ...item, isSelected: !item.isSelected } : item;
     });
     setMembers(selectUpdateMembers);
 

@@ -7,7 +7,8 @@ export interface MemberProps {
   squreImageUrl: string;
   longImageUrl: string;
   debutDate: string;
-  isSelected: boolean;
+  isSelected?: boolean;
+  isCenter?: boolean;
 }
 
 interface MembersProps {
