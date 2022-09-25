@@ -9,6 +9,7 @@ export interface MemberProps {
   debutDate: string;
   isSelected?: boolean;
   isCenter?: boolean;
+  position?: string;
 }
 
 interface MembersProps {

@@ -1,5 +1,8 @@
+import clsx from 'clsx';
+
 import { H3, H4 } from '../Text';
 
+import style from '@/components/PositionSettingCard/index.module.css';
 import { MemberProps, SelectedMemberStore } from '@/store/store';
 
 const PositionSettingCard = ({ id, name, groupName, squreImageUrl, isCenter }: MemberProps) => {
@@ -12,6 +15,28 @@ const PositionSettingCard = ({ id, name, groupName, squreImageUrl, isCenter }: M
     console.log(centerUpdateMembers);
     setSelectedMembers(centerUpdateMembers);
   };
+
+  const onPositionChange = (value: string) => {
+    console.log(value);
+    const positionUpdateMembers = [...selectedMembers].map((item) => {
+      return item.id === id ? { ...item, position: value } : item;
+    });
+    console.log(positionUpdateMembers);
+    setSelectedMembers(positionUpdateMembers);
+  };
+
+  const positionArr = [
+    '메인보컬',
+    '리드보컬',
+    '서브보컬',
+    '메인댄서',
+    '리드댄서',
+    '메인래퍼',
+    '리드래퍼',
+    '서브래퍼',
+    '올라운더',
+    '프로듀서',
+  ];
 
   return (
     <div className="flex w-full">
@@ -34,8 +59,26 @@ const PositionSettingCard = ({ id, name, groupName, squreImageUrl, isCenter }: M
           </div>
         </div>
         <H4>{groupName}</H4>
-        <select>
-          <option value="메인보컬">메인보컬</option>
+        <select
+          defaultValue=""
+          onChange={(e) => {
+            onPositionChange(e.currentTarget.value);
+          }}
+        >
+          <option value="" className={clsx(style.isDisabled)} disabled>
+            포지션을 선택해주세요
+          </option>
+          {positionArr.map((item) => (
+            <option
+              key={item}
+              value={item}
+              className={clsx({
+                [style.isDisabled]: selectedMembers.some((member) => member.position === item),
+              })}
+            >
+              {item}
+            </option>
+          ))}
         </select>
       </div>
     </div>
