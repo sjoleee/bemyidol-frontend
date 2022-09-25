@@ -38,3 +38,13 @@ export const SearchTextStore = create<SearchTextProps>((set) => ({
   searchText: '',
   setSearchText: (text) => set({ searchText: text }),
 }));
+
+interface CenterProps {
+  center: number;
+  setCenter: (id: number) => void;
+}
+
+export const CenterStore = create<CenterProps>((set) => ({
+  center: 0,
+  setCenter: (id: number) => set({ center: id }),
+}));
