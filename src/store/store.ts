@@ -7,7 +7,8 @@ export interface MemberProps {
   squreImageUrl: string;
   longImageUrl: string;
   debutDate: string;
-  isSelected: boolean;
+  isSelected?: boolean;
+  isCenter?: boolean;
 }
 
 interface MembersProps {
@@ -37,14 +38,4 @@ interface SearchTextProps {
 export const SearchTextStore = create<SearchTextProps>((set) => ({
   searchText: '',
   setSearchText: (text) => set({ searchText: text }),
-}));
-
-interface CenterProps {
-  center: number;
-  setCenter: (id: number) => void;
-}
-
-export const CenterStore = create<CenterProps>((set) => ({
-  center: 0,
-  setCenter: (id: number) => set({ center: id }),
 }));

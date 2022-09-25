@@ -1,9 +1,17 @@
 import { H3, H4 } from '../Text';
 
-import { CenterStore, MemberProps } from '@/store/store';
+import { MemberProps, SelectedMemberStore } from '@/store/store';
 
-const PositionSettingCard = ({ id, name, groupName, squreImageUrl }: MemberProps) => {
-  const { center, setCenter } = CenterStore();
+const PositionSettingCard = ({ id, name, groupName, squreImageUrl, isCenter }: MemberProps) => {
+  const { selectedMembers, setSelectedMembers } = SelectedMemberStore();
+
+  const onCenterChange = () => {
+    const centerUpdateMembers = [...selectedMembers].map((item) => {
+      return item.id === id ? { ...item, isCenter: !item.isCenter } : { ...item, isCenter: false };
+    });
+    console.log(centerUpdateMembers);
+    setSelectedMembers(centerUpdateMembers);
+  };
 
   return (
     <div className="flex w-full">
@@ -16,9 +24,9 @@ const PositionSettingCard = ({ id, name, groupName, squreImageUrl }: MemberProps
               <input
                 type="checkbox"
                 value={id}
-                checked={center === id}
+                checked={isCenter || false}
                 onChange={() => {
-                  setCenter(id);
+                  onCenterChange();
                 }}
               />
               센터
