@@ -7,7 +7,7 @@ const SelectedMemberCardList = () => {
   return (
     <>
       {selectedMembers.map((item) => (
-        <SelectedMemberCard key={item.id} {...item} />
+        <SelectedMemberCard key={item.memberId} {...item} />
       ))}
     </>
   );

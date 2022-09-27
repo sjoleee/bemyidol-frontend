@@ -1,24 +1,16 @@
 import MemberCard from '../MemberCard';
 
-import { MemberStore, SearchTextStore } from '@/store/store';
-import useDebounce from '@/hooks/useDebounce';
+import { MemberStore, SearchedMemberStore } from '@/store/store';
 
 const MemberCardList = () => {
   const { members } = MemberStore();
-  const { searchText } = SearchTextStore();
-
-  const debouncedSearchText = useDebounce(searchText, 200);
-
-  const filteredMembers = [...members].filter(
-    (item) =>
-      item.name.includes(debouncedSearchText) || item.groupName.includes(debouncedSearchText),
-  );
+  const { searchedMembers } = SearchedMemberStore();
 
   return (
     <div className="flex flex-wrap gap-3">
-      {filteredMembers.map((item) => (
-        <MemberCard key={item.id} {...item} />
-      ))}
+      {searchedMembers.length > 0
+        ? searchedMembers.map((item) => <MemberCard key={item?.memberId} {...item} />)
+        : members.map((item) => <MemberCard key={item.memberId} {...item} />)}
     </div>
   );
 };

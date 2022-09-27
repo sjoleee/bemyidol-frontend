@@ -5,19 +5,27 @@ import { H3, H4 } from '../Text';
 import style from '@/components/PositionSettingCard/index.module.css';
 import { MemberProps, SelectedMemberStore } from '@/store/store';
 
-const PositionSettingCard = ({ id, name, groupName, squreImageUrl, isCenter }: MemberProps) => {
+const PositionSettingCard = ({
+  memberId,
+  name,
+  groupName,
+  thumbnailImgUrl,
+  isCenter,
+}: MemberProps) => {
   const { selectedMembers, setSelectedMembers } = SelectedMemberStore();
 
   const onCenterChange = () => {
     const centerUpdateMembers = [...selectedMembers].map((item) => {
-      return item.id === id ? { ...item, isCenter: !item.isCenter } : { ...item, isCenter: false };
+      return item.memberId === memberId
+        ? { ...item, isCenter: !item.isCenter }
+        : { ...item, isCenter: false };
     });
     setSelectedMembers(centerUpdateMembers);
   };
 
   const onPositionChange = (value: string) => {
     const positionUpdateMembers = [...selectedMembers].map((item) => {
-      return item.id === id ? { ...item, position: value } : item;
+      return item.memberId === memberId ? { ...item, position: value } : item;
     });
     setSelectedMembers(positionUpdateMembers);
   };
@@ -37,7 +45,7 @@ const PositionSettingCard = ({ id, name, groupName, squreImageUrl, isCenter }: M
 
   return (
     <div className="flex w-full">
-      <img className="w-1/5 h-1/5" src={squreImageUrl} alt={name} />
+      <img className="w-1/5 h-1/5" src={thumbnailImgUrl} alt={name} />
       <div className="flex flex-col w-full">
         <div className="flex justify-between">
           <H3>{name}</H3>
@@ -45,7 +53,7 @@ const PositionSettingCard = ({ id, name, groupName, squreImageUrl, isCenter }: M
             <label>
               <input
                 type="checkbox"
-                value={id}
+                value={memberId}
                 checked={isCenter || false}
                 onChange={() => {
                   onCenterChange();

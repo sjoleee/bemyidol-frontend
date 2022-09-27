@@ -1,21 +1,21 @@
 import { MemberProps, MemberStore, SelectedMemberStore } from '@/store/store';
 
-const SelectedMemberCard = ({ name, groupName, id }: MemberProps) => {
+const SelectedMemberCard = ({ name, groupName, memberId }: MemberProps) => {
   const { members, setMembers } = MemberStore();
   const { selectedMembers, setSelectedMembers } = SelectedMemberStore();
 
-  const handleDeselect = (id: number) => {
+  const handleDeselect = (memberId: number) => {
     const selectUpdateMembers = [...members].map((item) => {
-      return item.id === id ? { ...item, isSelected: !item.isSelected } : item;
+      return item.memberId === memberId ? { ...item, isSelected: !item.isSelected } : item;
     });
     setMembers(selectUpdateMembers);
 
-    const newSelectedMembers = selectedMembers.filter((item) => item.id !== id);
+    const newSelectedMembers = selectedMembers.filter((item) => item.memberId !== memberId);
     setSelectedMembers(newSelectedMembers);
   };
 
   const onSelectedMemberCardClick = () => {
-    handleDeselect(id);
+    handleDeselect(memberId);
   };
 
   return (

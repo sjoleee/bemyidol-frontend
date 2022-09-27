@@ -7,7 +7,7 @@ const PositionSettingCardList = () => {
   return (
     <div className="w-full">
       {selectedMembers.map((item) => (
-        <PositionSettingCard key={item.id} {...item} />
+        <PositionSettingCard key={item.memberId} {...item} />
       ))}
     </div>
   );
