@@ -12,16 +12,13 @@ const PositionSettingCard = ({ id, name, groupName, squreImageUrl, isCenter }: M
     const centerUpdateMembers = [...selectedMembers].map((item) => {
       return item.id === id ? { ...item, isCenter: !item.isCenter } : { ...item, isCenter: false };
     });
-    console.log(centerUpdateMembers);
     setSelectedMembers(centerUpdateMembers);
   };
 
   const onPositionChange = (value: string) => {
-    console.log(value);
     const positionUpdateMembers = [...selectedMembers].map((item) => {
       return item.id === id ? { ...item, position: value } : item;
     });
-    console.log(positionUpdateMembers);
     setSelectedMembers(positionUpdateMembers);
   };
 
