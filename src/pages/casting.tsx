@@ -10,12 +10,14 @@ import MemberCardList from '@/components/MemberCardList';
 import SelectedMemberCardList from '@/components/SelectedMemberCardList';
 
 const Casting: NextPage = () => {
-  const { setMembers } = MemberStore();
+  const { members, setMembers } = MemberStore();
 
   useEffect(() => {
-    fetch('/data/mockdata.json')
-      .then((res) => res.json())
-      .then((res) => setMembers(res));
+    members.length > 0
+      ? null
+      : fetch('/data/mockdata.json')
+          .then((res) => res.json())
+          .then((res) => setMembers(res));
   }, []);
 
   return (
