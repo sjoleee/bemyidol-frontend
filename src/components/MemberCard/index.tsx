@@ -20,7 +20,7 @@ const MemberCard = ({ memberId, groupName, name, thumbnailImgUrl, isSelected }: 
     newMembers.forEach((item) =>
       item.memberId === memberId ? setSelectedMembers([...selectedMembers, item]) : null,
     );
-    console.log(newSearchedMembers);
+
     setSearchedMembers(newSearchedMembers);
     setMembers(newMembers);
   };
@@ -33,7 +33,7 @@ const MemberCard = ({ memberId, groupName, name, thumbnailImgUrl, isSelected }: 
     const newSearchedMembers = [...searchedMembers].map((item) =>
       item.memberId === memberId ? { ...item, isSelected: !item.isSelected } : item,
     );
-    console.log(newSearchedMembers);
+
     setSearchedMembers(newSearchedMembers);
     setMembers(newMembers);
 
