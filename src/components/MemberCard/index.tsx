@@ -1,34 +1,48 @@
 import clsx from 'clsx';
 
 import style from '@/components/MemberCard/index.module.css';
-import { MemberProps, MemberStore, SelectedMemberStore } from '@/store/store';
+import { MemberProps, MemberStore, SearchedMemberStore, SelectedMemberStore } from '@/store/store';
 
-const MemberCard = ({ id, groupName, name, squreImageUrl, debutDate, isSelected }: MemberProps) => {
+const MemberCard = ({ memberId, groupName, name, thumbnailImgUrl, isSelected }: MemberProps) => {
   const { members, setMembers } = MemberStore();
   const { selectedMembers, setSelectedMembers } = SelectedMemberStore();
+  const { searchedMembers, setSearchedMembers } = SearchedMemberStore();
 
-  const handleSelect = (id: number) => {
+  const handleSelect = (memberId: number) => {
     const newMembers = [...members].map((item) =>
-      item.id === id ? { ...item, isSelected: !item.isSelected } : item,
+      item.memberId === memberId ? { ...item, isSelected: !item.isSelected } : item,
     );
+
+    const newSearchedMembers = [...searchedMembers].map((item) =>
+      item.memberId === memberId ? { ...item, isSelected: !item.isSelected } : item,
+    );
+
     newMembers.forEach((item) =>
-      item.id === id ? setSelectedMembers([...selectedMembers, item]) : null,
+      item.memberId === memberId ? setSelectedMembers([...selectedMembers, item]) : null,
     );
+
+    setSearchedMembers(newSearchedMembers);
     setMembers(newMembers);
   };
 
-  const handleDeselect = (id: number) => {
+  const handleDeselect = (memberId: number) => {
     const newMembers = [...members].map((item) =>
-      item.id === id ? { ...item, isSelected: !item.isSelected } : item,
+      item.memberId === memberId ? { ...item, isSelected: !item.isSelected } : item,
     );
+
+    const newSearchedMembers = [...searchedMembers].map((item) =>
+      item.memberId === memberId ? { ...item, isSelected: !item.isSelected } : item,
+    );
+
+    setSearchedMembers(newSearchedMembers);
     setMembers(newMembers);
 
-    const newSelectedMembers = selectedMembers.filter((item) => item.id !== id);
+    const newSelectedMembers = selectedMembers.filter((item) => item.memberId !== memberId);
     setSelectedMembers(newSelectedMembers);
   };
 
   const onMemberCardClick = () => {
-    isSelected ? handleDeselect(id) : handleSelect(id);
+    isSelected ? handleDeselect(memberId) : handleSelect(memberId);
   };
 
   return (
@@ -39,10 +53,9 @@ const MemberCard = ({ id, groupName, name, squreImageUrl, debutDate, isSelected 
         })}
         onClick={onMemberCardClick}
       >
-        <img src={squreImageUrl} alt={name} />
+        <img src={thumbnailImgUrl} alt={name} />
         <span>{name}</span>
         <span>{groupName}</span>
-        <span>{debutDate}</span>
       </div>
     </>
   );
