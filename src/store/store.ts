@@ -15,6 +15,7 @@ export interface MemberProps {
 interface MembersProps {
   members: MemberProps[];
   setMembers: (members: MemberProps[]) => void;
+  loadMembers: (members: MemberProps[]) => void;
 }
 
 interface SearchedMemberStore {
@@ -30,6 +31,8 @@ interface SelectedMembersProps {
 export const MemberStore = create<MembersProps>((set) => ({
   members: [],
   setMembers: (members) => set({ members: members }),
+  loadMembers: (newMembers: MemberProps[]) =>
+    set((state) => ({ members: [...state.members, ...newMembers] })),
 }));
 
 export const SearchedMemberStore = create<SearchedMemberStore>((set) => ({
