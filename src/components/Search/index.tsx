@@ -8,7 +8,7 @@ const Search = () => {
   const [searchText, setSearchText] = useState('');
   const [debouncedValue, setDebouncedValue] = useState('');
   const { setSearchedMembers } = SearchedMemberStore();
-  const { selectedMembers, setSelectedMembers } = SelectedMemberStore();
+  const { selectedMembers } = SelectedMemberStore();
 
   useEffect(() => {
     const timer = setTimeout(() => {

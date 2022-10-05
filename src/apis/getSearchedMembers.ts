@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { BASE_URL } from '@/constants/url';
 
-const getSearchedMembers = async (query) => {
+const getSearchedMembers = async (query: string) => {
   try {
     const response = await axios.get(`${BASE_URL}/api/member/search?key=${query}`);
     return response.data;
