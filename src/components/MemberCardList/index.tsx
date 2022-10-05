@@ -23,7 +23,6 @@ const MemberCardList = () => {
   const obsHandler = useCallback((entries: IntersectionObserverEntry[]) => {
     const target = entries[0];
     if (!isLoading && target.isIntersecting && preventRef.current) {
-      console.log('불러오기');
       preventRef.current = false;
       setPage((prev) => prev + 1);
     }
