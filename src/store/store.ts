@@ -1,4 +1,5 @@
 import create from 'zustand';
+import { devtools } from 'zustand/middleware';
 
 export interface MemberProps {
   memberId: number;
@@ -18,7 +19,7 @@ interface MembersProps {
   loadMembers: (members: MemberProps[]) => void;
 }
 
-interface SearchedMemberStore {
+interface SearchedMemberProps {
   searchedMembers: MemberProps[];
   setSearchedMembers: (searchedMembers: MemberProps[]) => void;
 }
@@ -28,19 +29,25 @@ interface SelectedMembersProps {
   setSelectedMembers: (members: MemberProps[]) => void;
 }
 
-export const MemberStore = create<MembersProps>((set) => ({
-  members: [],
-  setMembers: (members) => set({ members: members }),
-  loadMembers: (newMembers: MemberProps[]) =>
-    set((state) => ({ members: [...state.members, ...newMembers] })),
-}));
+export const MemberStore = create<MembersProps>()(
+  devtools((set) => ({
+    members: [],
+    setMembers: (members) => set({ members: members }),
+    loadMembers: (newMembers: MemberProps[]) =>
+      set((state) => ({ members: [...state.members, ...newMembers] })),
+  })),
+);
 
-export const SearchedMemberStore = create<SearchedMemberStore>((set) => ({
-  searchedMembers: [],
-  setSearchedMembers: (members) => set({ searchedMembers: members }),
-}));
+export const SearchedMemberStore = create<SearchedMemberProps>()(
+  devtools((set) => ({
+    searchedMembers: [],
+    setSearchedMembers: (members) => set({ searchedMembers: members }),
+  })),
+);
 
-export const SelectedMemberStore = create<SelectedMembersProps>((set) => ({
-  selectedMembers: [],
-  setSelectedMembers: (members) => set({ selectedMembers: members }),
-}));
+export const SelectedMemberStore = create<SelectedMembersProps>()(
+  devtools((set) => ({
+    selectedMembers: [],
+    setSelectedMembers: (members) => set({ selectedMembers: members }),
+  })),
+);
