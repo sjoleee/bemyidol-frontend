@@ -29,6 +29,17 @@ interface SelectedMembersProps {
   setSelectedMembers: (members: MemberProps[]) => void;
 }
 
+interface DebutGroupProps {
+  debutGroup: {
+    groupMembers: MemberProps[];
+    groupName: string;
+    groupDescription: string;
+  };
+  setDebutGroupMembers: (members: MemberProps[]) => void;
+  setDebutGroupName: (input: string) => void;
+  setDebutGroupDescription: (description: string) => void;
+}
+
 export const MemberStore = create<MembersProps>()(
   devtools((set) => ({
     members: [],
@@ -49,5 +60,47 @@ export const SelectedMemberStore = create<SelectedMembersProps>()(
   devtools((set) => ({
     selectedMembers: [],
     setSelectedMembers: (members) => set({ selectedMembers: members }),
+  })),
+);
+
+export const DebutGroupStore = create<DebutGroupProps>()(
+  devtools((set) => ({
+    debutGroup: { groupName: '', groupMembers: [], groupDescription: '' },
+
+    setDebutGroupMembers: (members) =>
+      set((state) => {
+        const newState = {
+          debutGroup: {
+            groupMembers: members,
+            groupName: state.debutGroup.groupName,
+            groupDescription: state.debutGroup.groupDescription,
+          },
+        };
+        return newState;
+      }),
+
+    setDebutGroupName: (input: string) =>
+      set((state) => {
+        const newState = {
+          debutGroup: {
+            groupMembers: state.debutGroup.groupMembers,
+            groupName: input,
+            groupDescription: state.debutGroup.groupDescription,
+          },
+        };
+        return newState;
+      }),
+
+    setDebutGroupDescription: (description) =>
+      set((state) => {
+        const newState = {
+          debutGroup: {
+            groupMembers: state.debutGroup.groupMembers,
+            groupName: state.debutGroup.groupName,
+            groupDescription: description,
+          },
+        };
+        return newState;
+      }),
   })),
 );

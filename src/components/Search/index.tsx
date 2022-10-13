@@ -13,7 +13,7 @@ const Search = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedValue(searchText);
-    }, 200);
+    }, 300);
 
     return () => {
       clearTimeout(timer);
@@ -21,18 +21,20 @@ const Search = () => {
   }, [searchText]);
 
   useEffect(() => {
-    const get = async () => {
-      const result = await getSearchedMembers(debouncedValue);
-      if (selectedMembers.length > 0) {
-        const update = result.map((item: MemberProps) =>
-          selectedMembers.some((member) => member.memberId === item.memberId)
-            ? selectedMembers.find((member) => member.memberId === item.memberId)
-            : item,
-        );
-        setSearchedMembers(update);
-      } else setSearchedMembers(result);
-    };
-    get();
+    if (searchText) {
+      const get = async () => {
+        const result = await getSearchedMembers(debouncedValue);
+        if (selectedMembers.length > 0) {
+          const update = result.map((item: MemberProps) =>
+            selectedMembers.some((member) => member.memberId === item.memberId)
+              ? selectedMembers.find((member) => member.memberId === item.memberId)
+              : item,
+          );
+          setSearchedMembers(update);
+        } else setSearchedMembers(result);
+      };
+      get();
+    }
   }, [debouncedValue]);
 
   const onTextChange = (event: React.FormEvent<HTMLInputElement>) => {
