@@ -9,7 +9,6 @@ const Input = () => {
       currentTarget: { value },
     } = e;
     setDebutGroupName(value);
-    console.log(debutGroup);
   };
 
   return (
