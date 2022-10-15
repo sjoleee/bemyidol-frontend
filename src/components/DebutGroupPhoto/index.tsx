@@ -10,23 +10,23 @@ const DebutGroupPhoto = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const anchorRef = useRef<HTMLAnchorElement>(null);
 
-  //   const onCapture = (e: React.FormEvent<HTMLButtonElement>) => {
-  //     {
-  //       e.preventDefault();
-  //       html2canvas(document.getElementById('capture') as HTMLElement).then((canvas) => {
-  //         onSaveAs(canvas.toDataURL('image/png'), 'image-download.png');
-  //       });
-  //     }
-  //   };
-  //   const onSaveAs = (uri: string, filename: string) => {
-  //     console.log('onSaveAs');
-  //     const link = document.createElement('a');
-  //     document.body.appendChild(link);
-  //     link.href = uri;
-  //     link.download = filename;
-  //     link.click();
-  //     document.body.removeChild(link);
-  //   };
+  const onCapture = (e: React.FormEvent<HTMLButtonElement>) => {
+    {
+      e.preventDefault();
+      html2canvas(document.getElementById('capture') as HTMLElement).then((canvas) => {
+        onSaveAs(canvas.toDataURL('image/png'), 'image-download.png');
+      });
+    }
+  };
+  const onSaveAs = (uri: string, filename: string) => {
+    console.log('onSaveAs');
+    const link = document.createElement('a');
+    document.body.appendChild(link);
+    link.href = uri;
+    link.download = filename;
+    link.click();
+    document.body.removeChild(link);
+  };
   useEffect(() => {
     const DebutMembersIdList = debutGroup.groupMembers
       .map((member) => member.memberId)
@@ -102,10 +102,11 @@ const DebutGroupPhoto = () => {
   return (
     <div id="capture">
       <canvas ref={canvasRef} width="600px" height="700px" />
-      {/* <img src="https://photocloud.sbs.co.kr/origin/edit/S01_V0000010182/62be5547aff6c864823acb51-p.jpg"></img> */}
+      <img id="capture" src="https://idol-service.com/img/3.jpg"></img>
       <a download="my_painting.png" ref={anchorRef}>
         다운
       </a>
+      <button onClick={onCapture}>이미지다운</button>
     </div>
   );
 };
