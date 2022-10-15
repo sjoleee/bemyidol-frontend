@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 
 import Button from '@/components/Button';
@@ -5,8 +6,16 @@ import Input from '@/components/Input';
 import { H2 } from '@/components/Text';
 import Textarea from '@/components/Textarea';
 import PositionSettingCardList from '@/components/PositionSettingCardList';
+import { DebutGroupStore, SelectedMemberStore } from '@/store/store';
 
 const Setting = () => {
+  const { selectedMembers } = SelectedMemberStore();
+  const { setDebutGroupMembers } = DebutGroupStore();
+
+  const handleClick = () => {
+    setDebutGroupMembers([...selectedMembers]);
+  };
+
   return (
     <div className="flex flex-col items-start">
       <H2>이 그룹의 이름은</H2>
@@ -17,8 +26,8 @@ const Setting = () => {
       <Textarea />
       <Link href="/debut">
         <a>
-          <Button fullWidth={true} isFixed={true}>
-            다음
+          <Button fullWidth={true} isFixed={true} onClick={handleClick}>
+            데뷔시키기
           </Button>
         </a>
       </Link>
