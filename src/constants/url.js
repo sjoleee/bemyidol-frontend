@@ -1,1 +1,2 @@
-export const BASE_URL = 'https://idol-service.com';
+export const BASE_URL = 'http://idol-service.com';
+
