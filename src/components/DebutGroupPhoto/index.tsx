@@ -31,13 +31,74 @@ const DebutGroupPhoto = () => {
     });
   }, []);
 
-  return (
-    <div className="flex h-72 max-w-screen-lg">
-      {debutGroup.groupMembers.map((item) => (
-        <DebutMemberPhoto key={item.memberId} {...item} />
-      ))}
-    </div>
-  );
+  if (debutGroup.groupMembers.length < 6) {
+    return (
+      <div className="flex h-72 max-w-xl">
+        {debutGroup.groupMembers.map((item) => (
+          <DebutMemberPhoto key={item.memberId} {...item} />
+        ))}
+      </div>
+    );
+  } else {
+    if (debutGroup.groupMembers.length === 7) {
+      return (
+        <>
+          <div className="flex h-72 max-w-xl">
+            {debutGroup.groupMembers.map((item, idx) =>
+              idx < Math.ceil(debutGroup.groupMembers.length / 2) ? (
+                <DebutMemberPhoto key={item.memberId} {...item} />
+              ) : null,
+            )}
+          </div>
+          <div className="flex h-72 max-w-xl">
+            {debutGroup.groupMembers.map((item, idx) =>
+              idx >= Math.ceil(debutGroup.groupMembers.length / 2) ? (
+                <DebutMemberPhoto key={item.memberId} {...item} />
+              ) : null,
+            )}
+          </div>
+        </>
+      );
+    } else if (debutGroup.groupMembers.length === 9) {
+      return (
+        <>
+          <div className="flex h-72 max-w-xl">
+            {debutGroup.groupMembers.map((item, idx) =>
+              idx < Math.floor(debutGroup.groupMembers.length / 2) ? (
+                <DebutMemberPhoto key={item.memberId} {...item} />
+              ) : null,
+            )}
+          </div>
+          <div className="flex h-72 max-w-xl">
+            {debutGroup.groupMembers.map((item, idx) =>
+              idx >= Math.floor(debutGroup.groupMembers.length / 2) ? (
+                <DebutMemberPhoto key={item.memberId} {...item} />
+              ) : null,
+            )}
+          </div>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <div className="flex h-72 max-w-xl">
+            {debutGroup.groupMembers.map((item, idx) =>
+              idx < debutGroup.groupMembers.length / 2 ? (
+                <DebutMemberPhoto key={item.memberId} {...item} />
+              ) : null,
+            )}
+          </div>
+          <div className="flex h-72 max-w-xl">
+            {debutGroup.groupMembers.map((item, idx) =>
+              idx >= debutGroup.groupMembers.length / 2 ? (
+                <DebutMemberPhoto key={item.memberId} {...item} />
+              ) : null,
+            )}
+          </div>
+        </>
+      );
+    }
+  }
 };
 
 export default DebutGroupPhoto;
