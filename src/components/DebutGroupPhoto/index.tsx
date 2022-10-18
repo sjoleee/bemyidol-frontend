@@ -1,6 +1,7 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 
-import DebutMemberPhoto from '../DebutMemberPhoto';
+import PhotoTempleteSingleRow from '../PhotoTempleteSingleRow';
+import PhotoTempleteDualRow from '../PhotoTempleteDualRow';
 
 import { DebutGroupStore, MemberProps } from '@/store/store';
 import postDebutMembers from '@/apis/postDebutMembers';
@@ -8,7 +9,7 @@ import postDebutMembers from '@/apis/postDebutMembers';
 const DebutGroupPhoto = () => {
   const { debutGroup, setDebutGroupMembers } = DebutGroupStore();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const DebutMembersIdList = debutGroup.groupMembers
       .map((member) => member.memberId)
       .sort((a, b) => a - b);
@@ -29,76 +30,13 @@ const DebutGroupPhoto = () => {
       });
       setDebutGroupMembers(newData);
     });
-  }, []);
+  });
 
-  if (debutGroup.groupMembers.length < 6) {
-    return (
-      <div className="flex h-72 max-w-xl">
-        {debutGroup.groupMembers.map((item) => (
-          <DebutMemberPhoto key={item.memberId} {...item} />
-        ))}
-      </div>
-    );
-  } else {
-    if (debutGroup.groupMembers.length === 7) {
-      return (
-        <>
-          <div className="flex h-72 max-w-xl">
-            {debutGroup.groupMembers.map((item, idx) =>
-              idx < Math.ceil(debutGroup.groupMembers.length / 2) ? (
-                <DebutMemberPhoto key={item.memberId} {...item} />
-              ) : null,
-            )}
-          </div>
-          <div className="flex h-72 max-w-xl">
-            {debutGroup.groupMembers.map((item, idx) =>
-              idx >= Math.ceil(debutGroup.groupMembers.length / 2) ? (
-                <DebutMemberPhoto key={item.memberId} {...item} />
-              ) : null,
-            )}
-          </div>
-        </>
-      );
-    } else if (debutGroup.groupMembers.length === 9) {
-      return (
-        <>
-          <div className="flex h-72 max-w-xl">
-            {debutGroup.groupMembers.map((item, idx) =>
-              idx < Math.floor(debutGroup.groupMembers.length / 2) ? (
-                <DebutMemberPhoto key={item.memberId} {...item} />
-              ) : null,
-            )}
-          </div>
-          <div className="flex h-72 max-w-xl">
-            {debutGroup.groupMembers.map((item, idx) =>
-              idx >= Math.floor(debutGroup.groupMembers.length / 2) ? (
-                <DebutMemberPhoto key={item.memberId} {...item} />
-              ) : null,
-            )}
-          </div>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <div className="flex h-72 max-w-xl">
-            {debutGroup.groupMembers.map((item, idx) =>
-              idx < debutGroup.groupMembers.length / 2 ? (
-                <DebutMemberPhoto key={item.memberId} {...item} />
-              ) : null,
-            )}
-          </div>
-          <div className="flex h-72 max-w-xl">
-            {debutGroup.groupMembers.map((item, idx) =>
-              idx >= debutGroup.groupMembers.length / 2 ? (
-                <DebutMemberPhoto key={item.memberId} {...item} />
-              ) : null,
-            )}
-          </div>
-        </>
-      );
-    }
-  }
+  return (
+    <>
+      {debutGroup.groupMembers.length < 6 ? <PhotoTempleteSingleRow /> : <PhotoTempleteDualRow />}
+    </>
+  );
 };
 
 export default DebutGroupPhoto;
