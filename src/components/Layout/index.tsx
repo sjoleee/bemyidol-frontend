@@ -3,7 +3,7 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => {
-  return <div className="w-screen h-screen m-auto shadow-md p-4 overflow-y-scroll">{children}</div>;
+  return <div className=" relative w-screen h-screen m-auto shadow-md ">{children}</div>;
 };
 
 export default Layout;

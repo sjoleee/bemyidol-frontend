@@ -1,7 +1,11 @@
 .container {
-  @apply inline-flex items-center justify-center text-black bg-red-400 font-medium rounded-md;
+  @apply inline-flex items-center justify-center text-white bg-PRIMARY font-medium rounded-lg;
   @apply focus:outline-none whitespace-nowrap;
   @apply transition-colors transition-opacity disabled:opacity-40 disabled:select-none hover:opacity-80 active:opacity-80;
+
+  &.white {
+    @apply text-PRIMARY bg-white;
+  }
 
   &.x-small {
     @apply h-6 px-[3px];
@@ -16,7 +20,7 @@
   }
 
   &.large {
-    @apply h-12 font-semibold rounded-lg px-6;
+    @apply h-14 font-semibold rounded-lg px-6;
   }
 
   &.fullWidth {
@@ -28,6 +32,6 @@
   }
 
   &.isFixed {
-    @apply fixed bottom-0;
+    @apply fixed w-[calc(100%-16px)] left-2 bottom-2 md:bottom-12;
   }
 }

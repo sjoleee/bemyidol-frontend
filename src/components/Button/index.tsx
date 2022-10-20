@@ -15,6 +15,7 @@ export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   fullWidth?: boolean;
   fullRounded?: boolean;
   isFixed?: boolean;
+  isWhite?: boolean;
 };
 
 const Button = forwardRef<HTMLButtonElement, Props>(
@@ -22,10 +23,11 @@ const Button = forwardRef<HTMLButtonElement, Props>(
     {
       children,
       className,
-      size = ButtonSize.SM,
+      size = ButtonSize.LG,
       fullWidth = false,
       fullRounded = false,
       isFixed = false,
+      isWhite = false,
       ...rest
     },
     ref,
@@ -39,6 +41,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(
             [styles.fullWidth]: fullWidth,
             [styles.rounded]: fullRounded,
             [styles.isFixed]: isFixed,
+            [styles.white]: isWhite,
           },
           className,
         )}
