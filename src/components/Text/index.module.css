@@ -1,15 +1,22 @@
 .h1 {
-  @apply text-3xl;
+  @apply text-4xl font-bold;
 }
 
 .h2 {
-  @apply text-2xl;
+  @apply text-2xl font-medium;
 }
 
-.h3 {
+.t1 {
   @apply text-xl;
 }
 
-.h4 {
+.t2 {
   @apply text-lg;
+}
+
+.t3 {
+  @apply text-base;
+}
+.t4 {
+  @apply text-xs;
 }

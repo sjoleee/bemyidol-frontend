@@ -12,10 +12,18 @@ export const H2 = ({ children }: Props) => {
   return <h2 className={style.h2}>{children}</h2>;
 };
 
-export const H3 = ({ children }: Props) => {
-  return <h3 className={style.h3}>{children}</h3>;
+export const T1 = ({ children }: Props) => {
+  return <span className={style.t1}>{children}</span>;
 };
 
-export const H4 = ({ children }: Props) => {
-  return <h4 className={style.h4}>{children}</h4>;
+export const T2 = ({ children }: Props) => {
+  return <span className={style.t2}>{children}</span>;
+};
+
+export const T3 = ({ children }: Props) => {
+  return <span className={style.t3}>{children}</span>;
+};
+
+export const T4 = ({ children }: Props) => {
+  return <span className={style.t4}>{children}</span>;
 };

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { H3, H4 } from '../Text';
+import { T1, T2 } from '../Text';
 
 import style from '@/components/PositionSettingCard/index.module.css';
 import { MemberProps, SelectedMemberStore } from '@/store/store';
@@ -48,7 +48,7 @@ const PositionSettingCard = ({
       <img className="w-1/5 h-1/5" src={thumbnailImgUrl} alt={name} />
       <div className="flex flex-col w-full">
         <div className="flex justify-between">
-          <H3>{name}</H3>
+          <T1>{name}</T1>
           <div>
             <label>
               <input
@@ -63,7 +63,7 @@ const PositionSettingCard = ({
             </label>
           </div>
         </div>
-        <H4>{groupName}</H4>
+        <T2>{groupName}</T2>
         <select
           defaultValue=""
           onChange={(e) => {
