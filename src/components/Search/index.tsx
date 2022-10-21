@@ -49,7 +49,7 @@ const Search = () => {
 
   return (
     <input
-      placeholder="그룹 명 또는 이름으로 검색"
+      placeholder="그룹명 또는 이름을 검색해주세요"
       className={style.search}
       value={searchText}
       onChange={onTextChange}
