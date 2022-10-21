@@ -1,7 +1,7 @@
-.container {
-  @apply flex flex-col w-32;
+.baseStyle {
+  @apply flex flex-col w-[calc(50%-8px)] md:w-[calc(12.5%-14px)];
 
   &.selected {
-    @apply bg-green-500;
+    @apply bg-PRIMARY_LIGHT;
   }
 }

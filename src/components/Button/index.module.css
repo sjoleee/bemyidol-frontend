@@ -1,26 +1,11 @@
-.container {
-  @apply inline-flex items-center justify-center text-white bg-PRIMARY font-medium rounded-lg;
-  @apply focus:outline-none whitespace-nowrap;
-  @apply transition-colors transition-opacity disabled:opacity-40 disabled:select-none hover:opacity-80 active:opacity-80;
+.baseStyle {
+  @apply flex items-center justify-center text-white bg-PRIMARY font-semibold h-14 rounded-lg px-6;
+  @apply focus:outline-none;
+  @apply transition-colors transition-opacity hover:opacity-80 active:opacity-80;
+  @apply disabled:bg-GREY_MEDIUM disabled:select-none;
 
   &.white {
     @apply text-PRIMARY bg-white;
-  }
-
-  &.x-small {
-    @apply h-6 px-[3px];
-  }
-
-  &.small {
-    @apply h-8 px-4;
-  }
-
-  &.medium {
-    @apply h-10 px-6;
-  }
-
-  &.large {
-    @apply h-14 font-semibold rounded-lg px-6;
   }
 
   &.fullWidth {
@@ -32,6 +17,6 @@
   }
 
   &.isFixed {
-    @apply fixed w-[calc(100%-16px)] left-2 bottom-2 md:bottom-12;
+    @apply fixed w-[calc(100%-32px)] left-4 bottom-4 md:bottom-12;
   }
 }

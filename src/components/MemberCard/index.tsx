@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import { T2, T5 } from '../Text';
+
 import style from '@/components/MemberCard/index.module.css';
 import { MemberProps, MemberStore, SearchedMemberStore, SelectedMemberStore } from '@/store/store';
 
@@ -48,14 +50,16 @@ const MemberCard = ({ memberId, groupName, name, thumbnailImgUrl, isSelected }: 
   return (
     <>
       <div
-        className={clsx(style.container, {
+        className={clsx(style.baseStyle, {
           [style.selected]: isSelected,
         })}
         onClick={onMemberCardClick}
       >
-        <img src={thumbnailImgUrl} alt={name} />
-        <span>{name}</span>
-        <span>{groupName}</span>
+        <div className="flex w-full mb-1 after:content-[''] after:pb-[100%]">
+          <img className="object-cover w-full rounded-lg" src={thumbnailImgUrl} alt={name} />
+        </div>
+        <T2>{name}</T2>
+        <T5>{groupName}</T5>
       </div>
     </>
   );

@@ -3,7 +3,7 @@
 }
 
 .h2 {
-  @apply text-2xl font-medium;
+  @apply text-2xl font-normal;
 }
 
 .t1 {
@@ -17,6 +17,11 @@
 .t3 {
   @apply text-base;
 }
+
 .t4 {
+  @apply text-sm;
+}
+
+.t5 {
   @apply text-xs;
 }
