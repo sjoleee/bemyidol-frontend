@@ -58,7 +58,7 @@ const MemberCardList = () => {
   }, [page]);
 
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className=" flex relative h-[calc(100%-140px)] flex-wrap gap-4 overflow-scroll mt-2 pb-[40px] md:pb-[80px] scrollbar-none">
       {searchedMembers.length > 0 ? (
         searchedMembers.map((item) => <MemberCard key={item?.memberId} {...item} />)
       ) : (
@@ -66,7 +66,9 @@ const MemberCardList = () => {
           {members.map((item) => (
             <MemberCard key={item.memberId} {...item} />
           ))}
-          <div ref={obsRef}>{searchedMembers.length === 0 ? 'loading' : null}</div>
+          <div className=" w-full h-8" ref={obsRef}>
+            {searchedMembers.length === 0 ? '' : null}
+          </div>
         </>
       )}
     </div>
