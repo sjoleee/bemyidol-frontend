@@ -12,7 +12,12 @@ const Input = () => {
   };
 
   return (
-    <input className={style.groupNameInput} value={debutGroup.groupName} onChange={onInputChange} />
+    <input
+      className={style.groupNameInput}
+      value={debutGroup.groupName}
+      onChange={onInputChange}
+      placeholder="그룹명을 입력해주세요"
+    />
   );
 };
 
