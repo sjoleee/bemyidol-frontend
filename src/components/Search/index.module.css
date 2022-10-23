@@ -1,5 +1,5 @@
 .search {
-  @apply bg-GREY_LIGHT w-full h-10 rounded-lg px-4 py-[14px];
+  @apply bg-GREY_LIGHT w-full h-10 rounded-lg px-4 py-[14px] my-2;
   @apply focus:outline-none;
-  @apply placeholder:text-GREY_MEDIUM placeholder:text-GREY_MEDIUM placeholder:text-sm my-2;
+  @apply placeholder:text-GREY_HEAVY placeholder:text-sm;
 }
