@@ -4,8 +4,8 @@ module.exports = {
     extend: {
       colors: {
         GREY_LIGHT: '#F9F9F9',
-        GREY_MEDIUM: '#A8A8A8',
-        GREY_HEAVY: '#1E1E1E',
+        GREY_MEDIUM: '#C8C8C8',
+        GREY_HEAVY: '#A8A8A8',
         PRIMARY: '#F64280',
         PRIMARY_LIGHT: '#FFF2F7',
       },

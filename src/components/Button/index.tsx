@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
 
 import styles from './index.module.css';
 
@@ -10,27 +10,27 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   isWhite?: boolean;
 }
 
-const Button = ({
-  children,
-  fullWidth = false,
-  rounded = false,
-  isFixed = false,
-  isWhite = false,
-  ...rest
-}: Props) => {
-  return (
-    <button
-      className={clsx(styles.baseStyle, {
-        [styles.fullWidth]: fullWidth,
-        [styles.rounded]: rounded,
-        [styles.isFixed]: isFixed,
-        [styles.white]: isWhite,
-      })}
-      {...rest}
-    >
-      {children}
-    </button>
-  );
-};
+const Button = forwardRef<HTMLButtonElement, Props>(
+  (
+    { children, fullWidth = false, rounded = false, isFixed = false, isWhite = false, ...rest },
+    ref,
+  ) => {
+    return (
+      <button
+        className={clsx(styles.baseStyle, {
+          [styles.fullWidth]: fullWidth,
+          [styles.rounded]: rounded,
+          [styles.isFixed]: isFixed,
+          [styles.white]: isWhite,
+        })}
+        ref={ref}
+        {...rest}
+      >
+        {children}
+      </button>
+    );
+  },
+);
 
+Button.displayName = 'Button';
 export default Button;

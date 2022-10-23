@@ -1,91 +1,54 @@
-import clsx from 'clsx';
+import { T2, T5 } from '../Text';
+import PositionSelect from '../PositionSelect';
 
-import { T1, T2 } from '../Text';
-
-import style from '@/components/PositionSettingCard/index.module.css';
 import { MemberProps, SelectedMemberStore } from '@/store/store';
 
-const PositionSettingCard = ({
-  memberId,
-  name,
-  groupName,
-  thumbnailImgUrl,
-  isCenter,
-}: MemberProps) => {
+export interface extendedProps extends MemberProps {
+  idx: number;
+}
+
+const PositionSettingCard = ({ ...props }: extendedProps) => {
   const { selectedMembers, setSelectedMembers } = SelectedMemberStore();
 
   const onCenterChange = () => {
     const centerUpdateMembers = [...selectedMembers].map((item) => {
-      return item.memberId === memberId
+      return item.memberId === props.memberId
         ? { ...item, isCenter: !item.isCenter }
         : { ...item, isCenter: false };
     });
     setSelectedMembers(centerUpdateMembers);
   };
 
-  const onPositionChange = (value: string) => {
-    const positionUpdateMembers = [...selectedMembers].map((item) => {
-      return item.memberId === memberId ? { ...item, position: value } : item;
-    });
-    setSelectedMembers(positionUpdateMembers);
-  };
-
-  const positionArr = [
-    '메인보컬',
-    '리드보컬',
-    '서브보컬',
-    '메인댄서',
-    '리드댄서',
-    '메인래퍼',
-    '리드래퍼',
-    '서브래퍼',
-    '올라운더',
-    '프로듀서',
-  ];
-
   return (
-    <div className="flex w-full">
-      <img className="w-1/5 h-1/5" src={thumbnailImgUrl} alt={name} />
-      <div className="flex flex-col w-full">
-        <div className="flex justify-between">
-          <T1>{name}</T1>
-          <div>
-            <label>
-              <input
-                type="checkbox"
-                value={memberId}
-                checked={isCenter || false}
-                onChange={() => {
-                  onCenterChange();
-                }}
-              />
-              센터
-            </label>
-          </div>
-        </div>
-        <T2>{groupName}</T2>
-        <select
-          defaultValue=""
-          onChange={(e) => {
-            onPositionChange(e.currentTarget.value);
-          }}
-        >
-          <option value="" className={clsx(style.isDisabled)} disabled>
-            포지션을 선택해주세요
-          </option>
-          {positionArr.map((item) => (
-            <option
-              key={item}
-              value={item}
-              className={clsx({
-                [style.isDisabled]: selectedMembers.some((member) => member.position === item),
-              })}
-            >
-              {item}
-            </option>
-          ))}
-        </select>
+    <div
+      className={`flex w-full md:w-[calc(50%-4px)] h-24 rounded-lg px-4 py-2 items-center justify-between ${
+        props.idx % 2 ? 'bg-white' : 'bg-PRIMARY_LIGHT'
+      } ${props.idx % 4 === 1 || props.idx % 4 === 2 ? 'md:bg-white' : 'md:bg-PRIMARY_LIGHT '}`}
+    >
+      <div className="flex w-16 h-16 mr-2">
+        <img
+          className="object-cover w-full rounded-full"
+          src={props.thumbnailImgUrl}
+          alt={props.name}
+        />
       </div>
+      <div className="flex flex-col w-[60%]">
+        <T5>{props.groupName}</T5>
+        <T2>{props.name}</T2>
+        <PositionSelect memberId={props.memberId} idx={props.idx} position={props.position} />
+      </div>
+      <label className="flex items-center justify-end w-[20%]">
+        <T5 className={`mr-[3px] ${props.isCenter ? 'text-PRIMARY' : 'text-GREY_HEAVY'}`}>센터</T5>
+        <input
+          type="checkbox"
+          value={props.memberId}
+          checked={props.isCenter || false}
+          onChange={() => {
+            onCenterChange();
+          }}
+          className="accent-PRIMARY outline-0"
+        />
+      </label>
     </div>
   );
 };

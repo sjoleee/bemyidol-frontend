@@ -15,6 +15,7 @@ const Textarea = () => {
     <textarea
       className={style.groupDescriptionTextarea}
       value={debutGroup.groupDescription}
+      placeholder="그룹 소개를 입력해주세요"
       onChange={onTextareaChange}
     />
   );

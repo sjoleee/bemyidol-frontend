@@ -1,3 +1,5 @@
 .groupNameInput {
-  @apply border-black border-solid border;
+  @apply w-full h-8 border-GREY_MEDIUM border-solid border-b-[1px] text-xl focus:text-PRIMARY bg-GREY_LIGHT;
+  @apply placeholder:text-GREY_MEDIUM placeholder:text-sm;
+  @apply focus:outline-none focus:border-PRIMARY;
 }
