@@ -29,12 +29,10 @@ const PositionSelect = ({ memberId, idx, position }: pickedProps) => {
 
   return (
     <select
-      className={`w-full px-[2px] py-[2px] rounded-lg focus:outline-none text-PRIMARY text-xs ${
-        idx % 2 ? 'border-[1px] border-PRIMARY_LIGHT' : 'bg-white border-0'
+      className={`w-full px-[2px] py-[2px] rounded-lg focus:outline-none text-PRIMARY text-xs bg-white ${
+        idx % 2 ? 'border-[1px] border-PRIMARY_LIGHT' : 'border-0'
       } ${
-        idx % 4 === 1 || idx % 4 === 2
-          ? 'md:border-[1px] md:border-PRIMARY_LIGHT'
-          : 'md:bg-white md:border-0'
+        idx % 4 === 1 || idx % 4 === 2 ? 'md:border-[1px] md:border-PRIMARY_LIGHT' : 'md:border-0'
       }`}
       defaultValue={position || ''}
       onChange={(e) => {
@@ -48,7 +46,7 @@ const PositionSelect = ({ memberId, idx, position }: pickedProps) => {
         <option
           key={item}
           value={item}
-          className={selectedMembers.some((member) => member.position === item) ? 'hidden' : ''}
+          disabled={selectedMembers.some((member) => member.position === item)}
         >
           {item}
         </option>
