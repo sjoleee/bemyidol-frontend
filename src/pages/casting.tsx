@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { T1, T2 } from '@/components/Text';
+import { T2 } from '@/components/Text';
 import Search from '@/components/Search/index';
 import Button from '@/components/Button';
 import MemberCardList from '@/components/MemberCardList';

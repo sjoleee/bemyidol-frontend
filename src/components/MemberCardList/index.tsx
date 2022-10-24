@@ -24,15 +24,16 @@ const MemberCardList = () => {
   }, []);
 
   useEffect(() => {
+    const target = obsRef.current;
     if (!totalPage || currentPage <= totalPage) {
       const io = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && !isLoading) get();
       });
-      if (obsRef.current) io.observe(obsRef.current);
+      if (target) io.observe(target);
 
       return () => {
-        if (obsRef.current) {
-          io.unobserve(obsRef.current);
+        if (target) {
+          io.unobserve(target);
         }
       };
     }
