@@ -6,7 +6,6 @@ type Props = {
 };
 
 const Modal = ({ contents, handleModal }: Props) => {
-  console.log(contents);
   return (
     <div
       className="fixed bg-black bg-opacity-20 z-40 left-0 top-0 h-screen w-screen flex justify-center items-center"
