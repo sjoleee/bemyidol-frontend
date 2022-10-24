@@ -1,7 +1,7 @@
 .baseStyle {
-  @apply flex flex-col w-[calc(50%-8px)] md:w-[calc(12.5%-14px)];
+  @apply flex flex-col w-[calc(50%-4px)] md:w-[calc(12.5%-7px)] p-2 border-[1px] border-PRIMARY_LIGHT rounded-lg;
 
   &.selected {
-    @apply bg-PRIMARY_LIGHT;
+    @apply bg-PRIMARY rounded-lg text-white;
   }
 }
