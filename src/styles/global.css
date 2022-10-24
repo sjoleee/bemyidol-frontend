@@ -9,6 +9,10 @@ body {
   font-family: 'Pretendard', sans-serif;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
