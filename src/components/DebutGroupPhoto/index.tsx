@@ -30,7 +30,7 @@ const DebutGroupPhoto = () => {
       });
       setDebutGroupMembers(newData);
     });
-  });
+  }, []);
 
   return (
     <>
