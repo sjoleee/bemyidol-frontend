@@ -3,18 +3,27 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { T1, T2 } from '@/components/Text';
+import { T2 } from '@/components/Text';
 import Search from '@/components/Search/index';
 import Button from '@/components/Button';
 import MemberCardList from '@/components/MemberCardList';
 import SelectedMemberCardList from '@/components/SelectedMemberCardList';
-import { SelectedMemberStore } from '@/store/store';
+import { MemberStore, SearchedMemberStore, SelectedMemberStore } from '@/store/store';
 import Header from '@/components/Header';
 import ModalHandler from '@/components/ModalHandler';
 
 const Casting: NextPage = () => {
   const { selectedMembers } = SelectedMemberStore();
+  const { setMembers } = MemberStore();
+  const { setSearchedMembers } = SearchedMemberStore();
   const [isDisabled, setIsDisabled] = useState(true);
+
+  useEffect(() => {
+    return () => {
+      setMembers([]);
+      setSearchedMembers([]);
+    };
+  }, []);
 
   useEffect(() => {
     if (selectedMembers.length > 1 && selectedMembers.length < 11) {

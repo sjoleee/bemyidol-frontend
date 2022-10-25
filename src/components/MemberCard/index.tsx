@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { T2, T5 } from '../Text';
 
-import style from '@/components/MemberCard/index.module.css';
+import styles from '@/components/MemberCard/index.module.css';
 import { MemberProps, MemberStore, SearchedMemberStore, SelectedMemberStore } from '@/store/store';
 import select from '@/utils/select';
 import deselect from '@/utils/deselect';
@@ -29,8 +29,8 @@ const MemberCard = ({ memberId, groupName, name, thumbnailImgUrl, isSelected }: 
   return (
     <>
       <div
-        className={clsx(style.baseStyle, {
-          [style.selected]: isSelected,
+        className={clsx(styles.baseStyle, {
+          [styles.selected]: isSelected,
         })}
         onClick={onMemberCardClick}
       >

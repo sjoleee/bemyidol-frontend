@@ -23,19 +23,27 @@ const DebutGroupPhoto = () => {
       const newData = [...debutGroup.groupMembers];
       data.forEach((member) => {
         newData.forEach((item) => {
-          member.memberId === item.memberId
-            ? (item.longImageUrl = `https://idol-service.com/img/${item.memberId}.jpg`)
-            : null;
+          member.memberId === item.memberId ? (item.longImageUrl = member.longImageUrl) : null;
         });
       });
+      const centerIdx = newData.findIndex((item) => item.isCenter);
+
+      if (debutGroup.groupMembers.length < 6) {
+        const centerMember = newData.splice(centerIdx, 1);
+        newData.splice(Math.floor(debutGroup.groupMembers.length * 0.5), 0, centerMember[0]);
+      } else {
+        const centerMember = newData.splice(centerIdx, 1);
+        newData.splice(Math.floor(debutGroup.groupMembers.length * 0.75), 0, centerMember[0]);
+      }
+
       setDebutGroupMembers(newData);
     });
-  });
+  }, []);
 
   return (
-    <>
+    <div className="my-2">
       {debutGroup.groupMembers.length < 6 ? <PhotoTempleteSingleRow /> : <PhotoTempleteDualRow />}
-    </>
+    </div>
   );
 };
 

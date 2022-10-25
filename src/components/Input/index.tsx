@@ -1,4 +1,4 @@
-import style from '@/components/Input/index.module.css';
+import styles from '@/components/Input/index.module.css';
 import { DebutGroupStore } from '@/store/store';
 
 const Input = () => {
@@ -13,7 +13,7 @@ const Input = () => {
 
   return (
     <input
-      className={style.groupNameInput}
+      className={styles.groupNameInput}
       value={debutGroup.groupName}
       onChange={onInputChange}
       placeholder="그룹명을 입력해주세요"

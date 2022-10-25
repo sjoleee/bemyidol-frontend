@@ -19,12 +19,12 @@ const PhotoTempleteDualRow = () => {
 
   return (
     <>
-      <div className="flex h-72 max-w-xl">
+      <div className="flex h-56 max-w-lg">
         {debutGroup.groupMembers.map((item, idx) =>
           idx < comparisonStandard() ? <DebutMemberPhoto key={item.memberId} {...item} /> : null,
         )}
       </div>
-      <div className="flex h-72 max-w-xl">
+      <div className="flex h-56 max-w-lg">
         {debutGroup.groupMembers.map((item, idx) =>
           idx >= comparisonStandard() ? <DebutMemberPhoto key={item.memberId} {...item} /> : null,
         )}

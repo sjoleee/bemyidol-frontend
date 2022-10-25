@@ -1,6 +1,8 @@
-import QuestionMark from '@/assets/questionMark.svg';
 import { useState } from 'react';
+
 import Modal from '../Modal';
+
+import QuestionMark from '@/assets/questionMark.svg';
 
 type Props = {
   contents: string;

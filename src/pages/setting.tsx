@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 
 import Button from '@/components/Button';
 import Input from '@/components/Input';
-import { T1, T4 } from '@/components/Text';
 import Textarea from '@/components/Textarea';
 import PositionSettingCardList from '@/components/PositionSettingCardList';
 import { DebutGroupStore, SelectedMemberStore } from '@/store/store';
 import OrderedTitle from '@/components/OrderedTitle';
-import Head from 'next/head';
 import Header from '@/components/Header';
 import ModalHandler from '@/components/ModalHandler';
 

@@ -24,40 +24,42 @@ const MemberCardList = () => {
   }, []);
 
   useEffect(() => {
+    const target = obsRef.current;
     if (!totalPage || currentPage <= totalPage) {
       const io = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && !isLoading) get();
       });
-      if (obsRef.current) io.observe(obsRef.current);
+      if (target) io.observe(target);
 
       return () => {
-        if (obsRef.current) {
-          io.unobserve(obsRef.current);
+        if (target) {
+          io.unobserve(target);
         }
       };
     }
-  }, [currentPage]);
+  }, [currentPage, searchedMembers]);
 
   const get = async () => {
-    setIsLoading(true);
-    const res = await getMembers(currentPage);
-
-    if (selectedMembers.length > 0) {
-      const update = res.map((item: MemberProps) =>
-        selectedMembers.some((member) => member.memberId === item.memberId)
-          ? selectedMembers.find((member) => member.memberId === item.memberId)
-          : item,
-      );
-      loadMembers(update);
-    } else {
-      loadMembers(res);
+    if (searchedMembers.length === 0) {
+      setIsLoading(true);
+      const res = await getMembers(currentPage);
+      if (selectedMembers.length > 0) {
+        const update = res.map((item: MemberProps) =>
+          selectedMembers.some((member) => member.memberId === item.memberId)
+            ? selectedMembers.find((member) => member.memberId === item.memberId)
+            : item,
+        );
+        loadMembers(update);
+      } else {
+        loadMembers(res);
+      }
+      setCurrentPage((prev) => prev + 1);
+      setIsLoading(false);
     }
-    setCurrentPage((prev) => prev + 1);
-    setIsLoading(false);
   };
 
   return (
-    <div className=" flex relative flex-wrap gap-2 pb-24 md:pb-36">
+    <div className="flex relative flex-wrap gap-2 pb-24 md:pb-36">
       {searchedMembers.length > 0 ? (
         searchedMembers.map((item) => <MemberCard key={item?.memberId} {...item} />)
       ) : (
@@ -65,9 +67,7 @@ const MemberCardList = () => {
           {members.map((item) => (
             <MemberCard key={item.memberId} {...item} />
           ))}
-          <div className="w-full h-8" ref={obsRef}>
-            {searchedMembers.length === 0 ? '' : null}
-          </div>
+          <div className="w-full h-8" ref={obsRef}></div>
         </>
       )}
     </div>
