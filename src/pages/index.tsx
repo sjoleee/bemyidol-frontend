@@ -1,11 +1,26 @@
+import { useEffect } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
 import Button from '@/components/Button';
 import { H1, T2 } from '@/components/Text';
+import { DebutGroupStore, MemberStore, SelectedMemberStore } from '@/store/store';
 
 const Home: NextPage = () => {
+  const { setMembers } = MemberStore();
+  const { setSelectedMembers } = SelectedMemberStore();
+  const { setDebutGroupDescription, setDebutGroupMembers, setDebutGroupName } = DebutGroupStore();
+
+  useEffect(() => {
+    return () => {
+      setMembers([]);
+      setSelectedMembers([]);
+      setDebutGroupDescription('');
+      setDebutGroupName('');
+      setDebutGroupMembers([]);
+    };
+  }, []);
   return (
     <div className="flex relative flex-col items-center h-full overflow-hidden">
       <Head>
@@ -29,11 +44,9 @@ const Home: NextPage = () => {
         아이돌 어벤져스를 만들 계획이다.
       </p> */}
       <Link href="/casting">
-        <a>
-          <Button isWhite={true} isFixed={true}>
-            <T2>걸그룹 만들러가기 🎀</T2>
-          </Button>
-        </a>
+        <Button isWhite={true} isFixed={true}>
+          <T2>걸그룹 만들러가기 🎀</T2>
+        </Button>
       </Link>
       <div className="absolute bg-PRIMARY -z-10 rounded-[180%] md:rounded-[120%] w-[180%] h-full -bottom-[55%] md:-bottom-1/2" />
     </div>
