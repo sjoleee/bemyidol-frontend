@@ -1,4 +1,4 @@
-import style from '@/components/Textarea/index.module.css';
+import styles from '@/components/Textarea/index.module.css';
 import { DebutGroupStore } from '@/store/store';
 
 const Textarea = () => {
@@ -13,7 +13,7 @@ const Textarea = () => {
 
   return (
     <textarea
-      className={style.groupDescriptionTextarea}
+      className={styles.groupDescriptionTextarea}
       value={debutGroup.groupDescription}
       placeholder="그룹 소개를 입력해주세요"
       onChange={onTextareaChange}

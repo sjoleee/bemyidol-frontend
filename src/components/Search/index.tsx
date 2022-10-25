@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import getSearchedMembers from '@/apis/getSearchedMembers';
-import style from '@/components/Search/index.module.css';
+import styles from '@/components/Search/index.module.css';
 import { MemberProps, SearchedMemberStore, SelectedMemberStore } from '@/store/store';
 
 const Search = () => {
@@ -51,7 +51,7 @@ const Search = () => {
     <div className="bg-white">
       <input
         placeholder="그룹명 또는 이름을 검색해주세요"
-        className={style.search}
+        className={styles.search}
         value={searchText}
         onChange={onTextChange}
       />
