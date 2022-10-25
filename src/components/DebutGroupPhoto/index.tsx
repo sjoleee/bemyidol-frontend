@@ -41,9 +41,9 @@ const DebutGroupPhoto = () => {
   }, []);
 
   return (
-    <>
+    <div className="my-2">
       {debutGroup.groupMembers.length < 6 ? <PhotoTempleteSingleRow /> : <PhotoTempleteDualRow />}
-    </>
+    </div>
   );
 };
 
