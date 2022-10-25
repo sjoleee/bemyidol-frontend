@@ -12,6 +12,10 @@
     @apply w-full rounded-none;
   }
 
+  &.halfWidth {
+    @apply w-[calc(50%-4px)];
+  }
+
   &.rounded {
     @apply rounded-full;
   }
