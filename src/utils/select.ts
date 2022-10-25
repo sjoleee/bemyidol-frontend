@@ -21,6 +21,10 @@ const select = ({
     item.memberId === memberId ? setSelectedMembers([...selectedMembers, item]) : null,
   );
 
+  newSearchedMembers.forEach((item) =>
+    item.memberId === memberId ? setSelectedMembers([...selectedMembers, item]) : null,
+  );
+
   setSearchedMembers(newSearchedMembers);
   setMembers(newMembers);
 };
