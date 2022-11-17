@@ -13,25 +13,14 @@ const Home: NextPage = () => {
   const { setDebutGroupDescription, setDebutGroupMembers, setDebutGroupName } = DebutGroupStore();
 
   useEffect(() => {
-    return () => {
-      setMembers([]);
-      setSelectedMembers([]);
-      setDebutGroupDescription('');
-      setDebutGroupName('');
-      setDebutGroupMembers([]);
-    };
+    setMembers([]);
+    setSelectedMembers([]);
+    setDebutGroupDescription('');
+    setDebutGroupName('');
+    setDebutGroupMembers([]);
   }, []);
   return (
     <div className="flex relative flex-col items-center h-full overflow-hidden">
-      <Head>
-        <title>bemyidol</title>
-        <link
-          rel="stylesheet"
-          as="style"
-          crossOrigin="true"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"
-        />
-      </Head>
       <img className="w-32 md:w-40 mt-[30%] md:mt-[10%]" src="images/logo.png" alt="로고" />
       <H1>아이돌 메이커</H1>
       {/* <p className="text-center my-6">

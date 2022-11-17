@@ -10,7 +10,12 @@ const DebutMemberPhoto = ({ ...item }) => {
     <div
       className={` relative w-[calc(100%/${debutGroup.groupMembers.length})] h-full overflow-hidden`}
     >
-      <img className={styles.widthAuto} src={item.longImageUrl} alt={item.name} />
+      <img
+        className={styles.widthAuto}
+        src={item.longImageUrl}
+        alt={item.name}
+        crossOrigin="anonymous"
+      />
       {item.isCenter ? (
         <img
           className={`absolute bottom-[42px] left-1 w-[24px] h-[24px]`}

@@ -41,7 +41,7 @@ const DebutGroupPhoto = () => {
   }, []);
 
   return (
-    <div className="my-2">
+    <div className="my-2 rounded-lg overflow-hidden">
       {debutGroup.groupMembers.length < 6 ? <PhotoTempleteSingleRow /> : <PhotoTempleteDualRow />}
     </div>
   );
