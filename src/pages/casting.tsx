@@ -34,9 +34,6 @@ const Casting: NextPage = () => {
   }, [selectedMembers]);
   return (
     <>
-      <Head>
-        <title>bemyidol</title>
-      </Head>
       <Header title="캐스팅" Search={<Search />}>
         <ModalHandler contents="걸그룹 데이터는 '2022년 8월 걸그룹 브랜드평판 30위'를 바탕으로 만들어졌습니다. " />
       </Header>
