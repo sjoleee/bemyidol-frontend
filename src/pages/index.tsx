@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
 
 import Button from '@/components/Button';
@@ -19,6 +18,7 @@ const Home: NextPage = () => {
     setDebutGroupName('');
     setDebutGroupMembers([]);
   }, []);
+
   return (
     <div className="flex relative flex-col items-center h-full overflow-hidden">
       <img className="w-32 md:w-40 mt-[30%] md:mt-[10%]" src="images/logo.png" alt="로고" />

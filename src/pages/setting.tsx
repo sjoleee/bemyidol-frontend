@@ -1,6 +1,6 @@
+import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Head from 'next/head';
 
 import Button from '@/components/Button';
 import Input from '@/components/Input';
@@ -11,7 +11,7 @@ import OrderedTitle from '@/components/OrderedTitle';
 import Header from '@/components/Header';
 import ModalHandler from '@/components/ModalHandler';
 
-const Setting = () => {
+const Setting: NextPage = () => {
   const { selectedMembers } = SelectedMemberStore();
   const { debutGroup, setDebutGroupMembers } = DebutGroupStore();
   const [isDisabled, setIsDisabled] = useState(true);
