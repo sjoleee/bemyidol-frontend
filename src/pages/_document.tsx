@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html>
       <script
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `(function() {
    var w = window;
@@ -47,7 +46,6 @@ export default function Document() {
 `,
         }}
       />
-      ;
       <Head>
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <link
