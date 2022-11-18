@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
 
 import { T2 } from '@/components/Text';
