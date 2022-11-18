@@ -18,6 +18,7 @@ const Debut: NextPage = () => {
   const [isReady, setIsReady] = useState(false);
   const canvas = useRef<HTMLCanvasElement>(null);
   const crowdRef = useRef<HTMLImageElement>(null);
+  const [crowdHeight, setCrowdHeight] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -69,7 +70,10 @@ const Debut: NextPage = () => {
       <Header title="데뷔">
         <ConfettiHandler />
       </Header>
-      <div className={`flex flex-col md:w-[50%] p-4 py-[68px] md:pb-[323px] md:items-center`}>
+      <div
+        className="flex flex-col md:w-[50%] p-4 py-[68px] md:items-center"
+        style={{ paddingBottom: `${crowdRef.current?.offsetHeight}px` }}
+      >
         <div className="w-full">
           <div className="flex bg-PRIMARY w-[86px] h-[20px] mb-1 rounded-full justify-center items-center">
             <T5 className="text-white">HOT DEBUT!</T5>
