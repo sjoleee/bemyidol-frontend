@@ -10,6 +10,7 @@ import { DebutGroupStore, SelectedMemberStore } from '@/store/store';
 import OrderedTitle from '@/components/OrderedTitle';
 import Header from '@/components/Header';
 import ModalHandler from '@/components/ModalHandler';
+import Seo from '@/components/Seo';
 
 const Setting: NextPage = () => {
   const { selectedMembers } = SelectedMemberStore();
@@ -37,12 +38,12 @@ const Setting: NextPage = () => {
 
   return (
     <>
+      <Seo title="Setting" />
       <Header title="그룹 설정">
         <ModalHandler
           contents={`데뷔를 위해서 모든 항목을 채워주세요 🙏\n\n한 포지션에는 한 멤버만 배정할 수 있습니다 🙋‍♀️\n\n센터는 그룹에서 한 명만 선택 가능합니다 ⭐️`}
         />
       </Header>
-
       <div className="relative p-4 flex flex-col items-start pt-[54px] pb-[72px] md:pb-28 scrollbar-hide">
         <div className="pt-4 w-full ">
           <div className="w-full bg-GREY_LIGHT rounded-lg p-4 mb-4">
