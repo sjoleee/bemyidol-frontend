@@ -6,45 +6,49 @@ import Button from '@/components/Button';
 import ConfettiHandler from '@/components/ConfettiHandler';
 import Header from '@/components/Header';
 import { H1, T5 } from '@/components/Text';
-import { DebutGroupStore, MemberProps } from '@/store/store';
-import postDebutMembers from '@/apis/postDebutMembers';
+import { DebutGroupStore } from '@/store/store';
 import drawMembers from '@/utils/drawMembers';
-import sortCenter from '@/utils/sortCenter';
 import downloadImg from '@/utils/downloadImg';
 import Seo from '@/components/Seo';
-import updateLongImageUrl from '@/utils/updateLongImageUrl';
+import updateDebutGroup from '@/utils/updateDebutGroup';
+import Modal from '@/components/Modal';
 
 const Debut: NextPage = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const { debutGroup, setDebutGroupMembers } = DebutGroupStore();
   const [isReady, setIsReady] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
+  const { debutGroup, setDebutGroupMembers, setDebutGroup } = DebutGroupStore();
   const canvas = useRef<HTMLCanvasElement>(null);
   const crowdRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    const post = async () => {
-      const DebutMembersIdList = debutGroup.groupMembers
-        .map((member) => member.memberId)
-        .sort((a, b) => a - b);
-      return (await postDebutMembers(DebutMembersIdList)) as MemberProps[];
-    };
-
-    post()
-      .then((res) => updateLongImageUrl([...debutGroup.groupMembers], res))
-      .then((newGroupMembers) => sortCenter(newGroupMembers, debutGroup.groupMembers.length))
-      .then((sortedNewGroupMembers) => {
-        setDebutGroupMembers(sortedNewGroupMembers);
+    if (debutGroup.groupMembers.length === 0 && localStorage.getItem('debutGroup')) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+      const data = JSON.parse(localStorage.getItem('debutGroup') as string);
+      updateDebutGroup(data.groupMembers).then((res) => {
+        setDebutGroup(res, data.groupName, data.groupDescription);
         setIsReady(true);
       });
+    } else if (debutGroup.groupMembers.length === 0 && !localStorage.getItem('debutGroup')) {
+      setIsEmpty(true);
+    } else {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+      updateDebutGroup(debutGroup.groupMembers).then((res) => {
+        setDebutGroupMembers(res);
+        localStorage.setItem('debutGroup', JSON.stringify({ ...debutGroup, groupMembers: res }));
+        setIsReady(true);
+      });
+    }
   }, []);
 
   useEffect(() => {
     if (isReady && canvas.current) {
       drawMembers(canvas.current, debutGroup.groupMembers);
+      console.log(debutGroup);
     }
   }, [isReady]);
 
@@ -56,6 +60,14 @@ const Debut: NextPage = () => {
 
   return (
     <div className="flex flex-col items-center">
+      {isEmpty ? (
+        <Modal
+          contents="잘못된 접근입니다."
+          handleModal={() => {
+            location.pathname = '/';
+          }}
+        />
+      ) : null}
       <Seo title="Debut" />
       <Header title="데뷔">
         <ConfettiHandler />

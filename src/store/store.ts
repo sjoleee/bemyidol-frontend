@@ -29,12 +29,13 @@ interface SelectedMembersProps {
   setSelectedMembers: (members: MemberProps[]) => void;
 }
 
-interface DebutGroupProps {
+export interface DebutGroupProps {
   debutGroup: {
     groupMembers: MemberProps[];
     groupName: string;
     groupDescription: string;
   };
+  setDebutGroup: (members: MemberProps[], input: string, description: string) => void;
   setDebutGroupMembers: (members: MemberProps[]) => void;
   setDebutGroupName: (input: string) => void;
   setDebutGroupDescription: (description: string) => void;
@@ -66,6 +67,15 @@ export const SelectedMemberStore = create<SelectedMembersProps>()(
 export const DebutGroupStore = create<DebutGroupProps>()(
   devtools((set) => ({
     debutGroup: { groupName: '', groupMembers: [], groupDescription: '' },
+
+    setDebutGroup: (members, input, description) =>
+      set({
+        debutGroup: {
+          groupMembers: members,
+          groupName: input,
+          groupDescription: description,
+        },
+      }),
 
     setDebutGroupMembers: (members) =>
       set((state) => {
