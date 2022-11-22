@@ -48,7 +48,6 @@ const Debut: NextPage = () => {
   useEffect(() => {
     if (isReady && canvas.current) {
       drawMembers(canvas.current, debutGroup.groupMembers);
-      console.log(debutGroup);
     }
   }, [isReady]);
 
