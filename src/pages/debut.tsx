@@ -11,6 +11,7 @@ import postDebutMembers from '@/apis/postDebutMembers';
 import drawMembers from '@/utils/drawMembers';
 import sortCenter from '@/utils/sortCenter';
 import downloadImg from '@/utils/downloadImg';
+import Seo from '@/components/Seo';
 import updateLongImageUrl from '@/utils/updateLongImageUrl';
 
 const Debut: NextPage = () => {
@@ -55,6 +56,7 @@ const Debut: NextPage = () => {
 
   return (
     <div className="flex flex-col items-center">
+      <Seo title="Debut" />
       <Header title="데뷔">
         <ConfettiHandler />
       </Header>

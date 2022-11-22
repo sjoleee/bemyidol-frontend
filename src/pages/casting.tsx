@@ -10,6 +10,7 @@ import SelectedMemberCardList from '@/components/SelectedMemberCardList';
 import { MemberStore, SearchedMemberStore, SelectedMemberStore } from '@/store/store';
 import Header from '@/components/Header';
 import ModalHandler from '@/components/ModalHandler';
+import Seo from '@/components/Seo';
 
 const Casting: NextPage = () => {
   const { selectedMembers } = SelectedMemberStore();
@@ -31,8 +32,10 @@ const Casting: NextPage = () => {
       setIsDisabled(true);
     }
   }, [selectedMembers]);
+
   return (
     <>
+      <Seo title="Casting" />
       <Header title="캐스팅" Search={<Search />}>
         <ModalHandler contents="걸그룹 데이터는 '2022년 8월 걸그룹 브랜드평판 30위'를 바탕으로 만들어졌습니다. " />
       </Header>

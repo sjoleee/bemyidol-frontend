@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Button from '@/components/Button';
 import { H1, T2 } from '@/components/Text';
 import { DebutGroupStore, MemberStore, SelectedMemberStore } from '@/store/store';
+import Seo from '@/components/Seo';
 
 const Home: NextPage = () => {
   const { setMembers } = MemberStore();
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="flex relative flex-col items-center h-full overflow-hidden">
+      <Seo title="Home" />
       <img className="w-32 md:w-40 mt-[30%] md:mt-[10%]" src="images/logo.png" alt="로고" />
       <H1>아이돌 메이커</H1>
       {/* <p className="text-center my-6">
