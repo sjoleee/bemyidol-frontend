@@ -11,17 +11,20 @@ import OrderedTitle from '@/components/OrderedTitle';
 import Header from '@/components/Header';
 import ModalHandler from '@/components/ModalHandler';
 import Seo from '@/components/Seo';
+import Modal from '@/components/Modal';
 
 const Setting: NextPage = () => {
   const { selectedMembers } = SelectedMemberStore();
   const { debutGroup, setDebutGroupMembers } = DebutGroupStore();
   const [isDisabled, setIsDisabled] = useState(true);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   const handleClick = () => {
     setDebutGroupMembers([...selectedMembers]);
   };
 
   useEffect(() => {
+    if (selectedMembers.length === 0) setIsEmpty(true);
     const isCenterSelected = selectedMembers.some((item) => item.isCenter);
     const isPositionSelected = selectedMembers.every((item) => item.position);
     if (
@@ -39,6 +42,14 @@ const Setting: NextPage = () => {
   return (
     <>
       <Seo title="Setting" />
+      {isEmpty ? (
+        <Modal
+          contents="잘못된 접근입니다."
+          handleModal={() => {
+            location.pathname = '/';
+          }}
+        />
+      ) : null}
       <Header title="그룹 설정">
         <ModalHandler
           contents={`데뷔를 위해서 모든 항목을 채워주세요 🙏\n\n한 포지션에는 한 멤버만 배정할 수 있습니다 🙋‍♀️\n\n센터는 그룹에서 한 명만 선택 가능합니다 ⭐️`}

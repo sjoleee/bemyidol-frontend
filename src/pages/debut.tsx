@@ -12,6 +12,7 @@ import drawMembers from '@/utils/drawMembers';
 import sortCenter from '@/utils/sortCenter';
 import downloadImg from '@/utils/downloadImg';
 import Seo from '@/components/Seo';
+import updateLongImageUrl from '@/utils/updateLongImageUrl';
 
 const Debut: NextPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,34 +20,21 @@ const Debut: NextPage = () => {
   const [isReady, setIsReady] = useState(false);
   const canvas = useRef<HTMLCanvasElement>(null);
   const crowdRef = useRef<HTMLImageElement>(null);
-  const [crowdHeight, setCrowdHeight] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-  }, []);
-
-  useEffect(() => {
-    const DebutMembersIdList = debutGroup.groupMembers
-      .map((member) => member.memberId)
-      .sort((a, b) => a - b);
 
     const post = async () => {
-      const res = await postDebutMembers(DebutMembersIdList);
-      return res as MemberProps[];
+      const DebutMembersIdList = debutGroup.groupMembers
+        .map((member) => member.memberId)
+        .sort((a, b) => a - b);
+      return (await postDebutMembers(DebutMembersIdList)) as MemberProps[];
     };
 
     post()
-      .then((res) => {
-        const newGroupMembers = [...debutGroup.groupMembers];
-        res.forEach((member) => {
-          newGroupMembers.forEach((item) => {
-            member.memberId === item.memberId ? (item.longImageUrl = member.longImageUrl) : null;
-          });
-        });
-        return newGroupMembers;
-      })
+      .then((res) => updateLongImageUrl([...debutGroup.groupMembers], res))
       .then((newGroupMembers) => sortCenter(newGroupMembers, debutGroup.groupMembers.length))
       .then((sortedNewGroupMembers) => {
         setDebutGroupMembers(sortedNewGroupMembers);
