@@ -1,19 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useInfiniteQuery } from '@tanstack/react-query';
 
 import MemberCard from '../MemberCard';
 
-import { MemberProps, MemberStore, SearchedMemberStore, SelectedMemberStore } from '@/store/store';
+import { MemberProps, SearchedMemberStore } from '@/store/store';
 import getMembers from '@/apis/getMembers';
 import getPageCount from '@/apis/getPageCount';
+import useObserver from 'hooks/useObserver';
 
 const MemberCardList = () => {
   const { searchedMembers } = SearchedMemberStore();
-  const { selectedMembers } = SelectedMemberStore();
-  const { members, loadMembers } = MemberStore();
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-  const obsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const getTotalPage = async () => {
@@ -23,54 +20,40 @@ const MemberCardList = () => {
     getTotalPage();
   }, []);
 
-  useEffect(() => {
-    const target = obsRef.current;
-    if (!totalPage || currentPage <= totalPage) {
-      const io = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && !isLoading) get();
-      });
-      if (target) io.observe(target);
+  const { data, fetchNextPage, hasNextPage, status } = useInfiniteQuery(
+    ['infiniteMembers'],
+    ({ pageParam = 1 }) => getMembers(pageParam),
+    {
+      getNextPageParam: (lastPage, allPages) => {
+        return totalPage === allPages.length ? undefined : allPages.length + 1;
+      },
+    },
+  );
 
-      return () => {
-        if (target) {
-          io.unobserve(target);
-        }
-      };
-    }
-  }, [currentPage, searchedMembers]);
-
-  const get = async () => {
-    if (searchedMembers.length === 0) {
-      setIsLoading(true);
-      const res = await getMembers(currentPage);
-      if (selectedMembers.length > 0) {
-        const update = res.map((item: MemberProps) =>
-          selectedMembers.some((member) => member.memberId === item.memberId)
-            ? selectedMembers.find((member) => member.memberId === item.memberId)
-            : item,
-        );
-        loadMembers(update);
-      } else {
-        loadMembers(res);
-      }
-      setCurrentPage((prev) => prev + 1);
-      setIsLoading(false);
-    }
+  const onIntersect: IntersectionObserverCallback = ([entry]) => {
+    entry.isIntersecting && fetchNextPage();
   };
 
+  const { setTarget } = useObserver({ onIntersect });
+
   return (
-    <div className="flex relative flex-wrap gap-2 pb-24 md:pb-36">
-      {searchedMembers.length > 0 ? (
-        searchedMembers.map((item) => <MemberCard key={item?.memberId} {...item} />)
-      ) : (
-        <>
-          {members.map((item) => (
-            <MemberCard key={item.memberId} {...item} />
-          ))}
-          <div className="w-full h-8" ref={obsRef}></div>
-        </>
-      )}
-    </div>
+    <>
+      <div className="flex relative flex-wrap gap-2 pb-24 md:pb-36">
+        {searchedMembers.length > 0 ? (
+          searchedMembers.map((item) => <MemberCard key={item?.memberId} {...item} />)
+        ) : (
+          <>
+            {status === 'success' &&
+              data.pages.map((page) =>
+                page.map((member: MemberProps) => <MemberCard key={member.memberId} {...member} />),
+              )}
+          </>
+        )}
+      </div>
+      {hasNextPage && !searchedMembers.length ? (
+        <div className="w-full h-8" ref={setTarget}></div>
+      ) : null}
+    </>
   );
 };
 
