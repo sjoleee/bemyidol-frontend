@@ -8,7 +8,6 @@ export interface MemberProps {
   name: string;
   thumbnailImgUrl: string;
   longImageUrl?: string;
-  isSelected?: boolean;
   isCenter?: boolean;
   position?: string;
 }

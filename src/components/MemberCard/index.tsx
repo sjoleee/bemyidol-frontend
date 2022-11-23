@@ -1,29 +1,37 @@
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 import { T2, T5 } from '../Text';
 
 import styles from '@/components/MemberCard/index.module.css';
-import { MemberProps, MemberStore, SearchedMemberStore, SelectedMemberStore } from '@/store/store';
-import select from '@/utils/select';
-import deselect from '@/utils/deselect';
+import { MemberProps, SelectedMemberStore } from '@/store/store';
 
-const MemberCard = ({ memberId, groupName, name, thumbnailImgUrl, isSelected }: MemberProps) => {
-  const { members, setMembers } = MemberStore();
+const MemberCard = ({ memberId, groupId, groupName, name, thumbnailImgUrl }: MemberProps) => {
   const { selectedMembers, setSelectedMembers } = SelectedMemberStore();
-  const { searchedMembers, setSearchedMembers } = SearchedMemberStore();
+  const [isSelected, setIsSelected] = useState(false);
 
-  const params = {
-    memberId,
-    members,
-    setMembers,
-    selectedMembers,
-    setSelectedMembers,
-    searchedMembers,
-    setSearchedMembers,
-  };
+  useEffect(() => {
+    if (selectedMembers.some((item) => item.memberId === memberId)) {
+      setIsSelected(true);
+    } else {
+      setIsSelected(false);
+    }
+  }, [selectedMembers]);
 
   const onMemberCardClick = () => {
-    isSelected ? deselect(params) : select(params);
+    setIsSelected((prev) => !prev);
+
+    const targetMemberIdx = selectedMembers.findIndex((member) => member.memberId === memberId);
+    if (targetMemberIdx >= 0) {
+      const newSelectedMembers = [...selectedMembers];
+      newSelectedMembers.splice(targetMemberIdx, 1);
+      setSelectedMembers(newSelectedMembers);
+    } else {
+      setSelectedMembers([
+        ...selectedMembers,
+        { memberId, groupId, groupName, name, thumbnailImgUrl },
+      ]);
+    }
   };
 
   return (
@@ -43,4 +51,4 @@ const MemberCard = ({ memberId, groupName, name, thumbnailImgUrl, isSelected }: 
     </>
   );
 };
-export default MemberCard;
+export default React.memo(MemberCard);

@@ -11,6 +11,8 @@
     "tsc": "tsc"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.16.1",
+    "@tanstack/react-query-devtools": "^4.16.1",
     "axios": "^0.27.2",
     "clsx": "^1.2.1",
     "next": "12.3.0",
