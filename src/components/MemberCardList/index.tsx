@@ -4,9 +4,9 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import MemberCard from '../MemberCard';
 
 import { MemberProps, SearchedMemberStore } from '@/store/store';
-import getMembers from '@/apis/getMembers';
-import getPageCount from '@/apis/getPageCount';
+
 import useObserver from 'hooks/useObserver';
+import { getMembers, getPageCount } from '@/apis';
 
 const MemberCardList = () => {
   const { searchedMembers } = SearchedMemberStore();
