@@ -1,4 +1,4 @@
-import postDebutMembers from '@/apis/postDebutMembers';
+import { postDebutMembers } from '@/apis';
 import { MemberProps } from '@/store/store';
 
 const updateLongImageUrl = (prevData: MemberProps[], newData: MemberProps[]) => {

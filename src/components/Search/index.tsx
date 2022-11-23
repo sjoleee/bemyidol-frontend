@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import getSearchedMembers from '@/apis/getSearchedMembers';
 import styles from '@/components/Search/index.module.css';
 import { MemberProps, SearchedMemberStore, SelectedMemberStore } from '@/store/store';
+import { getSearchedMembers } from '@/apis';
 
 const Search = () => {
   const [searchText, setSearchText] = useState('');
