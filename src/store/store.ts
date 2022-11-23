@@ -12,12 +12,6 @@ export interface MemberProps {
   position?: string;
 }
 
-interface MembersProps {
-  members: MemberProps[];
-  setMembers: (members: MemberProps[]) => void;
-  loadMembers: (members: MemberProps[]) => void;
-}
-
 interface SearchedMemberProps {
   searchedMembers: MemberProps[];
   setSearchedMembers: (searchedMembers: MemberProps[]) => void;
@@ -39,15 +33,6 @@ export interface DebutGroupProps {
   setDebutGroupName: (input: string) => void;
   setDebutGroupDescription: (description: string) => void;
 }
-
-export const MemberStore = create<MembersProps>()(
-  devtools((set) => ({
-    members: [],
-    setMembers: (members) => set({ members: members }),
-    loadMembers: (newMembers: MemberProps[]) =>
-      set((state) => ({ members: [...state.members, ...newMembers] })),
-  })),
-);
 
 export const SearchedMemberStore = create<SearchedMemberProps>()(
   devtools((set) => ({

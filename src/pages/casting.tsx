@@ -7,20 +7,21 @@ import Search from '@/components/Search/index';
 import Button from '@/components/Button';
 import MemberCardList from '@/components/MemberCardList';
 import SelectedMemberCardList from '@/components/SelectedMemberCardList';
-import { MemberStore, SearchedMemberStore, SelectedMemberStore } from '@/store/store';
+import { SearchedMemberStore, SelectedMemberStore } from '@/store/store';
 import Header from '@/components/Header';
 import ModalHandler from '@/components/ModalHandler';
 import Seo from '@/components/Seo';
 
 const Casting: NextPage = () => {
   const { selectedMembers } = SelectedMemberStore();
-  const { setMembers } = MemberStore();
   const { setSearchedMembers } = SearchedMemberStore();
   const [isDisabled, setIsDisabled] = useState(true);
 
   useEffect(() => {
+    const scrollY = JSON.parse(localStorage.getItem('scrollY') as string);
+    if (scrollY !== '0') window.scrollTo(0, Number(scrollY));
+
     return () => {
-      setMembers([]);
       setSearchedMembers([]);
     };
   }, []);
@@ -45,7 +46,13 @@ const Casting: NextPage = () => {
         {selectedMembers.length ? <SelectedMemberCardList /> : null}
       </div>
       <Link href="/setting">
-        <Button isFixed={true} disabled={isDisabled}>
+        <Button
+          isFixed={true}
+          disabled={isDisabled}
+          onClick={() => {
+            localStorage.setItem('scrollY', JSON.stringify(window.scrollY));
+          }}
+        >
           <T2 className="text-white">
             {isDisabled ? '최소 2명 ~ 최대 10명을 선택해주세요' : '캐스팅 완료 👌'}
           </T2>
