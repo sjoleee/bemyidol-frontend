@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 
 import { T2, T5 } from '../Text';
@@ -42,8 +42,12 @@ const MemberCard = ({ memberId, groupId, groupName, name, thumbnailImgUrl }: Mem
         })}
         onClick={onMemberCardClick}
       >
-        <div className="flex w-full mb-1 after:content-[''] after:pb-[100%]">
-          <img className="object-cover w-full rounded-lg" src={thumbnailImgUrl} alt={name} />
+        <div className="flex w-full mb-1">
+          <img
+            className="object-cover w-full object-top rounded-lg aspect-square"
+            src={thumbnailImgUrl}
+            alt={name}
+          />
         </div>
         <T2>{name}</T2>
         <T5>{groupName}</T5>
