@@ -9,7 +9,10 @@ const Seo = ({ title }: SeoProps) => {
   return (
     <Head>
       <title>{appTitle}</title>
-      <meta name="description" content="BeMyIdol⭐️ | 나만의 아이돌 만들기" />
+      <meta
+        name="description"
+        content="BeMyIdol⭐️ | 비마이아이돌에서 최애만 모은 나만의 아이돌을 만들고 공유해보세요! Create and share your own idol group with your favorite members from BeMyIdol⭐️"
+      />
       <link rel="icon" href="/images/logo.png" />
     </Head>
   );
