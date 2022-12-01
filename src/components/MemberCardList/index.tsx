@@ -4,7 +4,6 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import MemberCard from '../MemberCard';
 
 import { MemberProps, SearchedMemberStore } from '@/store/store';
-
 import useObserver from 'hooks/useObserver';
 import { getMembers, getPageCount } from '@/apis';
 

@@ -1,4 +1,4 @@
-import { T1, T2, T4 } from '../Text';
+import { T2, T4 } from '../Text';
 
 interface Props {
   order: string;
