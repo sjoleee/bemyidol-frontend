@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { T2, T5 } from '../Text';
 
@@ -43,7 +44,7 @@ const MemberCard = ({ memberId, groupId, groupName, name, thumbnailImgUrl }: Mem
         onClick={onMemberCardClick}
       >
         <div className="flex w-full mb-1">
-          <img
+          <LazyLoadImage
             className="object-cover w-full object-top rounded-lg aspect-square"
             src={thumbnailImgUrl}
             alt={name}
