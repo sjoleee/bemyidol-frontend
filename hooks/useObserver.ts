@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 interface Props {
   onIntersect: IntersectionObserverCallback;
   root?: null;
   rootMargin?: string;
-  threshold?: number;
+  threshold?: number | number[];
 }
 
-const useObserver = ({ onIntersect, root, rootMargin = '0px', threshold = 0 }: Props) => {
+const useObserver = ({ onIntersect, root, rootMargin = "0px", threshold = 0 }: Props) => {
   const [target, setTarget] = useState<HTMLElement | null | undefined>(null);
 
   useEffect(() => {
