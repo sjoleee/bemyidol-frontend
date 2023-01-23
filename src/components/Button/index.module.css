@@ -1,5 +1,5 @@
 .baseStyle {
-  @apply flex items-center justify-center text-white bg-PRIMARY font-semibold h-14 rounded-lg px-6;
+  @apply flex items-center justify-center text-white bg-PRIMARY font-semibold h-14 rounded-lg px-6 z-50;
   @apply focus:outline-none;
   @apply transition-colors transition-opacity hover:opacity-80 active:opacity-80;
   @apply disabled:bg-GREY_HEAVY disabled:select-none;

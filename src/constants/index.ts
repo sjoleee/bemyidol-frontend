@@ -24,7 +24,7 @@ export const INTRODUCE_TEXT_ARR = [
     imgSrc: "https://idol-service.com/img/77.jpg",
   },
   {
-    id: 4,
+    id: 5,
     content: "아이들 슈화",
     imgSrc: "https://idol-service.com/img/37.jpg",
   },

@@ -1,7 +1,7 @@
-import clsx from 'clsx';
-import { ButtonHTMLAttributes, forwardRef } from 'react';
+import clsx from "clsx";
+import { ButtonHTMLAttributes, forwardRef } from "react";
 
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
@@ -42,5 +42,5 @@ const Button = forwardRef<HTMLButtonElement, Props>(
   },
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 export default Button;

@@ -35,12 +35,14 @@ const Home: NextPage = () => {
 
   //2번째 섹션의 io
   const onIntersectSecondSection: IntersectionObserverCallback = ([entry]) => {
+    console.log(entry.isIntersecting);
+    // if (entry.isIntersecting)
     entry.isIntersecting ? setIsSecondSectionSeen(true) : setIsSecondSectionSeen(false);
   };
 
   const { setTarget: setTargetSecondSection } = useObserver({
     onIntersect: onIntersectSecondSection,
-    threshold: 0.9,
+    threshold: [0.1, 0.5],
   });
 
   return (
@@ -73,28 +75,31 @@ const Home: NextPage = () => {
 
       <MainFirstSection />
 
-      <section className="h-[200vh] w-full relative">
+      <section className="h-[200vh] w-full relative flex flex-col justify-start items-center">
+        <div className="w-full h-[100vh] sticky top-0 z-10 gap-2 flex flex-col justify-center items-center">
+          <span className="w-full text-4xl text-center text-white">원하는 멤버만 골라,</span>
+          <span className="w-full text-4xl text-center text-white">마음대로 만드는</span>
+          <span className="bg-white px-4 py-2 mx-2 text-5xl font-bold rounded-lg text-PRIMARY">
+            나만의 아이돌
+          </span>
+        </div>
         <div
           className="h-screen w-full bg-PRIMARY sticky top-0 left-0 flex flex-col justify-center items-center"
           ref={setTargetSecondSection}
-          style={{ opacity: isSecondSectionSeen ? 1 : 0, transition: "opacity 0.3s" }}
-        >
-          <T1 className="w-full h-[100px] text-center font-bold absolute">
-            내가 좋아하는 <span className="bg-white px-4 mx-2 text-4xl rounded-lg">asdfasdf</span>이
-          </T1>
-          <T1 className="font-bold">모두 같은 그룹이라면?</T1>
-          <div className=" bg-slate-500 w-full h-[100px]">asdf</div>
-        </div>
-        <div className="bg-black absolute w-1 h-[100%] bottom-0" ref={setTargetSecondSection}></div>
+        ></div>
       </section>
 
-      {!isMainSeen && (
-        <Link href="/casting">
-          <Button isWhite={isSecondSectionSeen} isFixed={true} style={{ transition: "all 0.3s" }}>
+      <Link href="/casting">
+        <div
+          className={
+            isSecondSectionSeen ? "animate-fadein transition-all" : "animate-fadeout opacity-0 "
+          }
+        >
+          <Button isWhite={true} isFixed={true}>
             <T2>걸그룹 만들러가기 🎀</T2>
           </Button>
-        </Link>
-      )}
+        </div>
+      </Link>
     </div>
   );
 };

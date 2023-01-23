@@ -19,15 +19,16 @@ const MainFirstSection = () => {
   });
 
   return (
-    <section className="h-[430vh] w-full relative">
+    <section className="h-[450vh] w-full relative">
       <div
         className="h-screen w-full sticky top-0 left-0 flex flex-col justify-center items-center z-10"
         ref={setTargetFirstSection}
         style={{ opacity: isFirstSectionSeen ? 1 : 0, transition: "opacity 0.2s" }}
       >
+        <span className="text-4xl font-bold absolute top-[35%]">내가 좋아하는</span>
         {INTRODUCE_TEXT_ARR.map((item, index) => {
           return (
-            <>
+            <div key={item.id} className="flex flex-col justify-center items-center">
               {item.imgSrc && (
                 <img
                   alt={item.content}
@@ -37,16 +38,15 @@ const MainFirstSection = () => {
                 />
               )}
               <div
-                key={item.id}
-                className="bg-PRIMARY px-4 py-2 mb-2 mx-2 rounded-lg absolute bottom-[50%]"
+                className="bg-PRIMARY px-4 py-2 mb-2 mx-2 rounded-lg absolute top-[43%]"
                 style={{ opacity: currentIndex === index ? 1 : 0, transition: "opacity 0.3s" }}
               >
                 <span className="text-5xl font-bold text-white">{item.content}</span>
               </div>
-            </>
+            </div>
           );
         })}
-        <span className="text-5xl font-bold absolute top-[50%]">좋아하세요?</span>
+        <span className="text-4xl font-bold absolute top-[55%]">모두 같은 그룹이라면?</span>
       </div>
       <div>
         {INTRODUCE_TEXT_ARR.map((item, index) => {
@@ -55,8 +55,6 @@ const MainFirstSection = () => {
           );
         })}
       </div>
-
-      {/* */}
     </section>
   );
 };
