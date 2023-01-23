@@ -28,4 +28,19 @@ export const INTRODUCE_TEXT_ARR = [
     content: "아이들 슈화",
     imgSrc: "https://idol-service.com/img/37.jpg",
   },
+  {
+    id: 6,
+    content: "ITZY 유나",
+    imgSrc: "https://idol-service.com/img/124.jpg",
+  },
+  {
+    id: 7,
+    content: "엔믹스 설윤",
+    imgSrc: "https://idol-service.com/img/137.jpg",
+  },
+  {
+    id: 8,
+    content: "에스파 카리나",
+    imgSrc: "https://idol-service.com/img/38.jpg",
+  },
 ];
