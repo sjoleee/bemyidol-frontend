@@ -15,7 +15,7 @@ const MainFirstSection = () => {
 
   const { setTarget: setTargetFirstSection } = useObserver({
     onIntersect: onIntersectFirstSection,
-    threshold: 1,
+    threshold: 0.1,
   });
 
   return (
