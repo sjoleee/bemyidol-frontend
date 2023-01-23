@@ -23,7 +23,7 @@ const MainSecondSection = () => {
         <div className="w-full h-[100vh] sticky top-0 z-10 gap-2 flex flex-col justify-center items-center">
           <span className="w-full text-4xl text-center text-white">원하는 멤버만 골라,</span>
           <span className="w-full text-4xl text-center text-white">마음대로 만드는</span>
-          <span className="bg-white px-4 py-2 mx-2 text-5xl font-bold rounded-lg text-PRIMARY">
+          <span className="bg-white px-4 py-2 mx-2 text-5xl font-bold rounded-lg text-PRIMARY mb-[96px]">
             나만의 아이돌
           </span>
         </div>
