@@ -20,7 +20,7 @@ export const INTRODUCE_TEXT_ARR = [
   },
   {
     id: 4,
-    content: "뉴진스 혜린",
+    content: "뉴진스 해린",
     imgSrc: "https://idol-service.com/img/77.jpg",
   },
   {

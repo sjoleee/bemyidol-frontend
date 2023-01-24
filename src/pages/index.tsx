@@ -45,7 +45,7 @@ const Home: NextPage = () => {
           <H1>BeMyIdol</H1>
           <T1 className="text-center">나만의 아이돌을 만들고 공유해보세요!</T1>
           <Lottie
-            className="absolute bottom-[10%]"
+            className="absolute bottom-[20%]"
             loop
             animationData={lottieJson}
             play
