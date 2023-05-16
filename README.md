@@ -1,16 +1,19 @@
 # BeMyIdol⭐️ | 최애만 모은 나만의 아이돌 그룹을 만들고 공유해보세요!
 
-[이미지 들어갈 공간]
+![bemyidolreadme](https://github.com/sjoleee/bemyidol-frontend/assets/82137004/d8509e43-0c5c-4760-a988-4b06d0241d88)
+
 
 - [BeMyIdol Web](https://www.bemyidol.xyz/)
-
+(서버비용 문제로 닫아두었어요 🥲)
 
 <br />
 
 
 ## 🍻 Intro: 서비스 소개
 
-[이미지 들어갈 공간]
+![image](https://github.com/sjoleee/bemyidol-frontend/assets/82137004/bd497679-180a-4659-9a3e-1c422cb10121)
+
+
 
 당신이 좋아하는 아이돌 멤버는 누구인가요?
 
